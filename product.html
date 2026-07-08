@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Моята заявка — Greek Feast</title>
-<meta name="description" content="Прегледайте вашата заявка и изпратете данни за поръчка на прясна гръцка храна.">
+<title id="pageTitle">Продукт — Greek Feast</title>
+<meta name="description" id="pageDesc" content="Прясна гръцка храна — официален представител на Papa Georgio.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -18,7 +18,7 @@
     </a>
     <nav class="main-nav" id="mainNav">
       <a href="index.html">Начало</a>
-      <a href="catalog.html">Продукти</a>
+      <a href="catalog.html" class="active">Продукти</a>
       <a href="about.html">За нас</a>
       <a href="contact.html">Контакти</a>
     </nav>
@@ -33,75 +33,21 @@
   </div>
 </header>
 
-<section class="page-hero">
+<div class="container" style="padding-top:28px;">
+  <div class="breadcrumb" id="breadcrumb" style="color: var(--ink-soft);"></div>
+</div>
+
+<section style="padding-top:14px;">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Начало</a><span>/</span>Моята заявка</div>
-    <h1>Вашата заявка</h1>
-    <p>Прегледайте избраните продукти и попълнете данните за контакт — ще се свържем с вас за потвърждение.</p>
-  </div>
-</section>
+    <div class="product-detail-grid" id="productDetail"></div>
 
-<section class="bg-cream">
-  <div class="container">
-
-    <div id="successMessage" class="empty-cart" style="display:none;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#0D5EAF" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-      <h3>Благодарим ви!</h3>
-      <p>Вашата заявка беше изпратена успешно. Ще се свържем с вас възможно най-скоро за потвърждение.</p>
-      <a href="catalog.html" class="btn btn-primary mt-40">Разгледай още продукти</a>
-    </div>
-
-    <div id="orderContent" class="order-layout">
-      <div>
-        <div id="cartList" class="cart-list"></div>
-        <div id="emptyCart" class="empty-cart" style="display:none;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-          <h3>Заявката е празна</h3>
-          <p>Разгледайте каталога и добавете продукти, за да продължите.</p>
-          <a href="catalog.html" class="btn btn-primary mt-40">Към продуктите</a>
-        </div>
+    <div class="related-section" id="relatedSection" style="display:none;">
+      <div class="section-head" style="text-align:left; margin-bottom:34px;">
+        <span class="eyebrow">Още предложения</span>
+        <h2 id="relatedTitle">Още от тази категория</h2>
       </div>
-
-      <div class="order-summary" id="orderSummaryBox">
-        <h3>Обобщение</h3>
-        <div class="summary-row"><span>Продукти</span><span id="sumCount">0</span></div>
-        <div class="summary-total"><span>Приблизителна сума</span><span id="sumTotal">0.00 лв</span></div>
-        <p class="form-note" style="margin:14px 0 20px;">Крайната цена и наличност се потвърждават от нас по телефон след изпращане на заявката.</p>
-
-        <form id="orderForm" action="https://formsubmit.co/bojidar453@abv.bg" method="POST">
-          <input type="hidden" name="_subject" value="Нова заявка от Greek Feast">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="order.html?success=1">
-          <input type="hidden" name="Продукти" id="orderItemsField">
-          <div class="field" style="margin-bottom:14px;">
-            <label for="oName">Име и фамилия</label>
-            <input type="text" id="oName" name="Име" required placeholder="Вашето име">
-          </div>
-          <div class="field" style="margin-bottom:14px;">
-            <label for="oPhone">Телефон</label>
-            <input type="tel" id="oPhone" name="Телефон" required placeholder="08xx xxx xxx">
-          </div>
-          <div class="field" style="margin-bottom:14px;">
-            <label for="oEmail">Имейл</label>
-            <input type="email" id="oEmail" name="Имейл" placeholder="you@example.com">
-          </div>
-          <div class="field" style="margin-bottom:14px;">
-            <label for="oAddress">Адрес / град за доставка</label>
-            <input type="text" id="oAddress" name="Адрес" required placeholder="Град, улица, номер">
-          </div>
-          <div class="field" style="margin-bottom:14px;">
-            <label for="oDate">Желана дата за доставка</label>
-            <input type="date" id="oDate" name="Желана дата">
-          </div>
-          <div class="field" style="margin-bottom:20px;">
-            <label for="oNotes">Коментар</label>
-            <textarea id="oNotes" name="Коментар" rows="3" placeholder="Допълнителни детайли по заявката"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block" id="submitOrderBtn">Изпрати заявката</button>
-        </form>
-      </div>
+      <div class="product-grid" id="relatedGrid"></div>
     </div>
-
   </div>
 </section>
 
@@ -154,8 +100,9 @@
   <span id="toastMsg">Добавено към заявката</span>
 </div>
 
+<script src="js/products.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/main.js"></script>
-<script src="js/order.js"></script>
+<script src="js/product-page.js"></script>
 </body>
 </html>

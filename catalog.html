@@ -24,10 +24,10 @@
     </nav>
     <div class="header-actions">
       <a href="contact.html" class="btn btn-outline btn-sm">Свържете се</a>
-      <a href="order.html" class="cart-btn">
+      <button type="button" class="cart-btn" id="cartOpenBtn">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         Заявка <span class="cart-count" id="cartCount">0</span>
-      </a>
+      </button>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Меню"><span></span><span></span><span></span></button>
   </div>
@@ -62,9 +62,9 @@
       <h2><svg class="cat-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg> Салати</h2>
       <div class="product-grid" style="margin-top:28px;">
         <div class="product-card" data-search-name="гръцка салата хориатики">
-          <div class="product-figure"><span class="product-tag">Хит</span><img src="images/illustrations/salad.svg" alt="Гръцка салата Хориатики"></div>
+          <div class="product-figure"><span class="product-tag">Хит</span><a href="product.html?id=salad-horiatiki" class="figure-link"><img src="images/illustrations/salad.svg" alt="Гръцка салата Хориатики"></a></div>
           <div class="product-body">
-            <h4>Гръцка салата Хориатики</h4>
+            <h4><a href="product.html?id=salad-horiatiki">Гръцка салата Хориатики</a></h4>
             <p class="desc">Домати, краставици, лук, маслини и фета сирене.</p>
             <div class="product-foot"><div><span class="price">9.90 лв</span> <span class="unit">/ 450г</span></div>
               <button class="add-btn" data-id="salad-horiatiki" data-name="Гръцка салата Хориатики" data-price="9.90" data-unit="450г" data-category="Салати" data-img="images/illustrations/salad.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -72,9 +72,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="салата с калмари на скара">
-          <div class="product-figure"><img src="images/illustrations/salad.svg" alt="Салата с калмари на скара"></div>
+          <div class="product-figure"><a href="product.html?id=salad-calamari" class="figure-link"><img src="images/illustrations/salad.svg" alt="Салата с калмари на скара"></a></div>
           <div class="product-body">
-            <h4>Салата с калмари на скара</h4>
+            <h4><a href="product.html?id=salad-calamari">Салата с калмари на скара</a></h4>
             <p class="desc">Салатен микс с калмари на скара и лимонов дресинг.</p>
             <div class="product-foot"><div><span class="price">12.50 лв</span> <span class="unit">/ 300г</span></div>
               <button class="add-btn" data-id="salad-calamari" data-name="Салата с калмари на скара" data-price="12.50" data-unit="300г" data-category="Салати" data-img="images/illustrations/salad.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -82,9 +82,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="критски дакос">
-          <div class="product-figure"><img src="images/illustrations/salad.svg" alt="Критски дакос"></div>
+          <div class="product-figure"><a href="product.html?id=salad-dakos" class="figure-link"><img src="images/illustrations/salad.svg" alt="Критски дакос"></a></div>
           <div class="product-body">
-            <h4>Критски дакос</h4>
+            <h4><a href="product.html?id=salad-dakos">Критски дакос</a></h4>
             <p class="desc">Сухар с домати, мека фета мицитра и риган.</p>
             <div class="product-foot"><div><span class="price">8.50 лв</span> <span class="unit">/ 350г</span></div>
               <button class="add-btn" data-id="salad-dakos" data-name="Критски дакос" data-price="8.50" data-unit="350г" data-category="Салати" data-img="images/illustrations/salad.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -92,9 +92,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="салата с октопод и рукола">
-          <div class="product-figure"><img src="images/illustrations/salad.svg" alt="Салата с октопод и рукола"></div>
+          <div class="product-figure"><a href="product.html?id=salad-octopus" class="figure-link"><img src="images/illustrations/salad.svg" alt="Салата с октопод и рукола"></a></div>
           <div class="product-body">
-            <h4>Салата с октопод и рукола</h4>
+            <h4><a href="product.html?id=salad-octopus">Салата с октопод и рукола</a></h4>
             <p class="desc">Крехък октопод върху свежа рукола с чери домати.</p>
             <div class="product-foot"><div><span class="price">14.90 лв</span> <span class="unit">/ 320г</span></div>
               <button class="add-btn" data-id="salad-octopus" data-name="Салата с октопод и рукола" data-price="14.90" data-unit="320г" data-category="Салати" data-img="images/illustrations/salad.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -102,9 +102,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="политики салата зелева">
-          <div class="product-figure"><img src="images/illustrations/salad.svg" alt="Политики салата"></div>
+          <div class="product-figure"><a href="product.html?id=salad-politiki" class="figure-link"><img src="images/illustrations/salad.svg" alt="Политики салата"></a></div>
           <div class="product-body">
-            <h4>Политики салата (зелева)</h4>
+            <h4><a href="product.html?id=salad-politiki">Политики салата (зелева)</a></h4>
             <p class="desc">Финно нарязано зеле, моркови и билков дресинг.</p>
             <div class="product-foot"><div><span class="price">7.50 лв</span> <span class="unit">/ 400г</span></div>
               <button class="add-btn" data-id="salad-politiki" data-name="Политики салата" data-price="7.50" data-unit="400г" data-category="Салати" data-img="images/illustrations/salad.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -112,12 +112,22 @@
           </div>
         </div>
         <div class="product-card" data-search-name="салата с печени чушки и фета">
-          <div class="product-figure"><img src="images/illustrations/salad.svg" alt="Печени чушки и фета"></div>
+          <div class="product-figure"><a href="product.html?id=salad-peppers-feta" class="figure-link"><img src="images/illustrations/salad.svg" alt="Печени чушки и фета"></a></div>
           <div class="product-body">
-            <h4>Печени чушки и фета</h4>
+            <h4><a href="product.html?id=salad-peppers-feta">Печени чушки и фета</a></h4>
             <p class="desc">Сладки печени чушки с маслини и фета сирене.</p>
             <div class="product-foot"><div><span class="price">8.90 лв</span> <span class="unit">/ 350г</span></div>
               <button class="add-btn" data-id="salad-peppers-feta" data-name="Печени чушки и фета" data-price="8.90" data-unit="350г" data-category="Салати" data-img="images/illustrations/salad.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" data-search-name="гръцко мезе плато">
+          <div class="product-figure"><a href="product.html?id=meze-platter" class="figure-link"><img src="images/illustrations/meze.svg" alt="Гръцко мезе плато"></a></div>
+          <div class="product-body">
+            <h4><a href="product.html?id=meze-platter">Гръцко мезе плато</a></h4>
+            <p class="desc">Дзадзики, хумус, маслини, питка и зеленчуци.</p>
+            <div class="product-foot"><div><span class="price">13.90 лв</span> <span class="unit">/ за споделяне</span></div>
+              <button class="add-btn" data-id="meze-platter" data-name="Гръцко мезе плато" data-price="13.90" data-unit="за споделяне" data-category="Салати" data-img="images/illustrations/meze.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
             </div>
           </div>
         </div>
@@ -129,9 +139,9 @@
       <h2><svg class="cat-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="12" rx="9" ry="5"/><path d="M21 12l-4-3v6z"/></svg> Рибни ястия</h2>
       <div class="product-grid" style="margin-top:28px;">
         <div class="product-card" data-search-name="цял морски бран на скара">
-          <div class="product-figure"><span class="product-tag">Хит</span><img src="images/illustrations/fish.svg" alt="Морски бран на скара"></div>
+          <div class="product-figure"><span class="product-tag">Хит</span><a href="product.html?id=fish-brancho" class="figure-link"><img src="images/illustrations/fish.svg" alt="Морски бран на скара"></a></div>
           <div class="product-body">
-            <h4>Цял морски бран на скара</h4>
+            <h4><a href="product.html?id=fish-brancho">Цял морски бран на скара</a></h4>
             <p class="desc">Прясна риба на скара с лимон, зехтин и билки.</p>
             <div class="product-foot"><div><span class="price">16.90 лв</span> <span class="unit">/ бр.</span></div>
               <button class="add-btn" data-id="fish-brancho" data-name="Морски бран на скара" data-price="16.90" data-unit="1 бр." data-category="Рибни ястия" data-img="images/illustrations/fish.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -139,9 +149,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="филе от лаврак с лимон и билки">
-          <div class="product-figure"><img src="images/illustrations/fish.svg" alt="Филе от лаврак"></div>
+          <div class="product-figure"><a href="product.html?id=fish-lavrak" class="figure-link"><img src="images/illustrations/fish.svg" alt="Филе от лаврак"></a></div>
           <div class="product-body">
-            <h4>Филе от лаврак</h4>
+            <h4><a href="product.html?id=fish-lavrak">Филе от лаврак</a></h4>
             <p class="desc">Нежно филе с лимон, чесън и свежи билки.</p>
             <div class="product-foot"><div><span class="price">15.50 лв</span> <span class="unit">/ 300г</span></div>
               <button class="add-btn" data-id="fish-lavrak" data-name="Филе от лаврак" data-price="15.50" data-unit="300г" data-category="Рибни ястия" data-img="images/illustrations/fish.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -149,9 +159,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="калмари на скара">
-          <div class="product-figure"><img src="images/illustrations/fish.svg" alt="Калмари на скара"></div>
+          <div class="product-figure"><a href="product.html?id=fish-calamari" class="figure-link"><img src="images/illustrations/fish.svg" alt="Калмари на скара"></a></div>
           <div class="product-body">
-            <h4>Калмари на скара</h4>
+            <h4><a href="product.html?id=fish-calamari">Калмари на скара</a></h4>
             <p class="desc">Крехки калмари, приготвени на скара с лимон.</p>
             <div class="product-foot"><div><span class="price">13.90 лв</span> <span class="unit">/ 300г</span></div>
               <button class="add-btn" data-id="fish-calamari" data-name="Калмари на скара" data-price="13.90" data-unit="300г" data-category="Рибни ястия" data-img="images/illustrations/fish.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -159,9 +169,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="скариди сарагано">
-          <div class="product-figure"><img src="images/illustrations/fish.svg" alt="Скариди сарагано"></div>
+          <div class="product-figure"><a href="product.html?id=fish-shrimp-saganaki" class="figure-link"><img src="images/illustrations/fish.svg" alt="Скариди сарагано"></a></div>
           <div class="product-body">
-            <h4>Скариди Сарагано</h4>
+            <h4><a href="product.html?id=fish-shrimp-saganaki">Скариди Сарагано</a></h4>
             <p class="desc">Скариди в сос с домати, фета и узо.</p>
             <div class="product-foot"><div><span class="price">17.90 лв</span> <span class="unit">/ 250г</span></div>
               <button class="add-btn" data-id="fish-shrimp-saganaki" data-name="Скариди Сарагано" data-price="17.90" data-unit="250г" data-category="Рибни ястия" data-img="images/illustrations/fish.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -169,9 +179,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="октопод на скара">
-          <div class="product-figure"><img src="images/illustrations/fish.svg" alt="Октопод на скара"></div>
+          <div class="product-figure"><a href="product.html?id=octopus-grill" class="figure-link"><img src="images/illustrations/fish.svg" alt="Октопод на скара"></a></div>
           <div class="product-body">
-            <h4>Октопод на скара</h4>
+            <h4><a href="product.html?id=octopus-grill">Октопод на скара</a></h4>
             <p class="desc">Крехък октопод с олио, оцет и риган.</p>
             <div class="product-foot"><div><span class="price">19.90 лв</span> <span class="unit">/ 300г</span></div>
               <button class="add-btn" data-id="octopus-grill" data-name="Октопод на скара" data-price="19.90" data-unit="300г" data-category="Рибни ястия" data-img="images/illustrations/fish.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -179,9 +189,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="сардини на скара">
-          <div class="product-figure"><img src="images/illustrations/fish.svg" alt="Сардини на скара"></div>
+          <div class="product-figure"><a href="product.html?id=fish-sardines" class="figure-link"><img src="images/illustrations/fish.svg" alt="Сардини на скара"></a></div>
           <div class="product-body">
-            <h4>Сардини на скара</h4>
+            <h4><a href="product.html?id=fish-sardines">Сардини на скара</a></h4>
             <p class="desc">Прясно уловени сардини, на скара с лимон.</p>
             <div class="product-foot"><div><span class="price">9.90 лв</span> <span class="unit">/ 300г</span></div>
               <button class="add-btn" data-id="fish-sardines" data-name="Сардини на скара" data-price="9.90" data-unit="300г" data-category="Рибни ястия" data-img="images/illustrations/fish.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -196,9 +206,9 @@
       <h2><svg class="cat-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M4 12a2 2 0 100-4 2 2 0 000 4zM20 12a2 2 0 100-4 2 2 0 000 4z"/></svg> Пилешки шишове</h2>
       <div class="product-grid" style="margin-top:28px;">
         <div class="product-card" data-search-name="пилешко сувлаки класическо">
-          <div class="product-figure"><span class="product-tag">Хит</span><img src="images/illustrations/chicken-skewer.svg" alt="Пилешко сувлаки"></div>
+          <div class="product-figure"><span class="product-tag">Хит</span><a href="product.html?id=chicken-souvlaki" class="figure-link"><img src="images/illustrations/chicken-skewer.svg" alt="Пилешко сувлаки"></a></div>
           <div class="product-body">
-            <h4>Пилешко сувлаки</h4>
+            <h4><a href="product.html?id=chicken-souvlaki">Пилешко сувлаки</a></h4>
             <p class="desc">Класическо гръцко сувлаки, маринован и на скара.</p>
             <div class="product-foot"><div><span class="price">8.90 лв</span> <span class="unit">/ 2 бр.</span></div>
               <button class="add-btn" data-id="chicken-souvlaki" data-name="Пилешко сувлаки" data-price="8.90" data-unit="2 бр." data-category="Пилешки шишове" data-img="images/illustrations/chicken-skewer.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -206,9 +216,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="пилешки шиш с чушки и лук">
-          <div class="product-figure"><img src="images/illustrations/chicken-skewer.svg" alt="Пилешки шиш с чушки и лук"></div>
+          <div class="product-figure"><a href="product.html?id=chicken-peppers" class="figure-link"><img src="images/illustrations/chicken-skewer.svg" alt="Пилешки шиш с чушки и лук"></a></div>
           <div class="product-body">
-            <h4>Пилешки шиш с чушки и лук</h4>
+            <h4><a href="product.html?id=chicken-peppers">Пилешки шиш с чушки и лук</a></h4>
             <p class="desc">Сочно пиле с чушки и лук на дървени шишчета.</p>
             <div class="product-foot"><div><span class="price">6.90 лв</span> <span class="unit">/ бр.</span></div>
               <button class="add-btn" data-id="chicken-peppers" data-name="Пилешки шиш с чушки и лук" data-price="6.90" data-unit="1 бр." data-category="Пилешки шишове" data-img="images/illustrations/chicken-skewer.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -216,9 +226,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="пилешко сувлаки с медено горчична глазура">
-          <div class="product-figure"><img src="images/illustrations/chicken-skewer.svg" alt="Медено-горчично сувлаки"></div>
+          <div class="product-figure"><a href="product.html?id=chicken-honey-mustard" class="figure-link"><img src="images/illustrations/chicken-skewer.svg" alt="Медено-горчично сувлаки"></a></div>
           <div class="product-body">
-            <h4>Сувлаки с медено-горчична глазура</h4>
+            <h4><a href="product.html?id=chicken-honey-mustard">Сувлаки с медено-горчична глазура</a></h4>
             <p class="desc">Пилешко сувлаки с лека сладко-пикантна глазура.</p>
             <div class="product-foot"><div><span class="price">9.90 лв</span> <span class="unit">/ 2 бр.</span></div>
               <button class="add-btn" data-id="chicken-honey-mustard" data-name="Сувлаки медено-горчично" data-price="9.90" data-unit="2 бр." data-category="Пилешки шишове" data-img="images/illustrations/chicken-skewer.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -226,9 +236,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="пилешки кебап">
-          <div class="product-figure"><img src="images/illustrations/chicken-skewer.svg" alt="Пилешки кебап"></div>
+          <div class="product-figure"><a href="product.html?id=chicken-kebap" class="figure-link"><img src="images/illustrations/chicken-skewer.svg" alt="Пилешки кебап"></a></div>
           <div class="product-body">
-            <h4>Пилешки кебап на скара</h4>
+            <h4><a href="product.html?id=chicken-kebap">Пилешки кебап на скара</a></h4>
             <p class="desc">Кайма от пилешко месо с подправки, на скара.</p>
             <div class="product-foot"><div><span class="price">10.90 лв</span> <span class="unit">/ 300г</span></div>
               <button class="add-btn" data-id="chicken-kebap" data-name="Пилешки кебап" data-price="10.90" data-unit="300г" data-category="Пилешки шишове" data-img="images/illustrations/chicken-skewer.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -243,9 +253,9 @@
       <h2><svg class="cat-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M4 12a2 2 0 100-4 2 2 0 000 4zM20 12a2 2 0 100-4 2 2 0 000 4z"/></svg> Свински шишове</h2>
       <div class="product-grid" style="margin-top:28px;">
         <div class="product-card" data-search-name="свинско сувлаки класическо">
-          <div class="product-figure"><span class="product-tag">Хит</span><img src="images/illustrations/pork-skewer.svg" alt="Свинско сувлаки"></div>
+          <div class="product-figure"><span class="product-tag">Хит</span><a href="product.html?id=pork-souvlaki" class="figure-link"><img src="images/illustrations/pork-skewer.svg" alt="Свинско сувлаки"></a></div>
           <div class="product-body">
-            <h4>Свинско сувлаки</h4>
+            <h4><a href="product.html?id=pork-souvlaki">Свинско сувлаки</a></h4>
             <p class="desc">Сочно свинско на скара по традиционна рецепта.</p>
             <div class="product-foot"><div><span class="price">8.50 лв</span> <span class="unit">/ 2 бр.</span></div>
               <button class="add-btn" data-id="pork-souvlaki" data-name="Свинско сувлаки" data-price="8.50" data-unit="2 бр." data-category="Свински шишове" data-img="images/illustrations/pork-skewer.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -253,9 +263,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="свински шиш с гирос подправки">
-          <div class="product-figure"><img src="images/illustrations/pork-skewer.svg" alt="Свински шиш гирос"></div>
+          <div class="product-figure"><a href="product.html?id=pork-gyros" class="figure-link"><img src="images/illustrations/pork-skewer.svg" alt="Свински шиш гирос"></a></div>
           <div class="product-body">
-            <h4>Свински шиш "Гирос"</h4>
+            <h4><a href="product.html?id=pork-gyros">Свински шиш "Гирос"</a></h4>
             <p class="desc">Ароматни подправки в гръцки гирос стил.</p>
             <div class="product-foot"><div><span class="price">9.50 лв</span> <span class="unit">/ 2 бр.</span></div>
               <button class="add-btn" data-id="pork-gyros" data-name="Свински шиш Гирос" data-price="9.50" data-unit="2 бр." data-category="Свински шишове" data-img="images/illustrations/pork-skewer.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -263,9 +273,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="свински кебап на скара">
-          <div class="product-figure"><img src="images/illustrations/pork-skewer.svg" alt="Свински кебап"></div>
+          <div class="product-figure"><a href="product.html?id=pork-kebap" class="figure-link"><img src="images/illustrations/pork-skewer.svg" alt="Свински кебап"></a></div>
           <div class="product-body">
-            <h4>Свински кебап на скара</h4>
+            <h4><a href="product.html?id=pork-kebap">Свински кебап на скара</a></h4>
             <p class="desc">Сочна кайма от свинско, подправена по гръцки.</p>
             <div class="product-foot"><div><span class="price">10.50 лв</span> <span class="unit">/ 300г</span></div>
               <button class="add-btn" data-id="pork-kebap" data-name="Свински кебап" data-price="10.50" data-unit="300г" data-category="Свински шишове" data-img="images/illustrations/pork-skewer.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -273,9 +283,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="мешана скара свинско комбо">
-          <div class="product-figure"><img src="images/illustrations/pork-skewer.svg" alt="Мешана скара"></div>
+          <div class="product-figure"><a href="product.html?id=pork-combo" class="figure-link"><img src="images/illustrations/pork-skewer.svg" alt="Мешана скара"></a></div>
           <div class="product-body">
-            <h4>Мешана скара (комбо)</h4>
+            <h4><a href="product.html?id=pork-combo">Мешана скара (комбо)</a></h4>
             <p class="desc">Комбинация от свинско сувлаки, кебап и колбас.</p>
             <div class="product-foot"><div><span class="price">13.90 лв</span> <span class="unit">/ 400г</span></div>
               <button class="add-btn" data-id="pork-combo" data-name="Мешана скара свинско" data-price="13.90" data-unit="400г" data-category="Свински шишове" data-img="images/illustrations/pork-skewer.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -290,9 +300,9 @@
       <h2><svg class="cat-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3h8l-1 6a5 5 0 01-6 0z"/><path d="M12 13v8M9 21h6"/></svg> Алкохол</h2>
       <div class="product-grid" style="margin-top:28px;">
         <div class="product-card" data-search-name="узо 700мл">
-          <div class="product-figure"><span class="product-tag">Хит</span><img src="images/illustrations/alcohol.svg" alt="Узо 700мл"></div>
+          <div class="product-figure"><span class="product-tag">Хит</span><a href="product.html?id=ouzo-700" class="figure-link"><img src="images/illustrations/alcohol.svg" alt="Узо 700мл"></a></div>
           <div class="product-body">
-            <h4>Узо, 700мл</h4>
+            <h4><a href="product.html?id=ouzo-700">Узо, 700мл</a></h4>
             <p class="desc">Автентичен гръцки анасонов ликьор.</p>
             <div class="product-foot"><div><span class="price">24.90 лв</span> <span class="unit">/ 700мл</span></div>
               <button class="add-btn" data-id="ouzo-700" data-name="Узо 700мл" data-price="24.90" data-unit="700мл" data-category="Алкохол" data-img="images/illustrations/alcohol.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -300,9 +310,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="гръцко бяло вино асиртико">
-          <div class="product-figure"><img src="images/illustrations/alcohol.svg" alt="Асиртико бяло вино"></div>
+          <div class="product-figure"><a href="product.html?id=wine-assyrtiko" class="figure-link"><img src="images/illustrations/alcohol.svg" alt="Асиртико бяло вино"></a></div>
           <div class="product-body">
-            <h4>Асиртико — бяло вино</h4>
+            <h4><a href="product.html?id=wine-assyrtiko">Асиртико — бяло вино</a></h4>
             <p class="desc">Свежо санторинско бяло вино, 750мл.</p>
             <div class="product-foot"><div><span class="price">19.90 лв</span> <span class="unit">/ 750мл</span></div>
               <button class="add-btn" data-id="wine-assyrtiko" data-name="Асиртико бяло вино" data-price="19.90" data-unit="750мл" data-category="Алкохол" data-img="images/illustrations/alcohol.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -310,9 +320,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="гръцко червено вино агиоргитико">
-          <div class="product-figure"><img src="images/illustrations/alcohol.svg" alt="Агиоргитико червено вино"></div>
+          <div class="product-figure"><a href="product.html?id=wine-agiorgitiko" class="figure-link"><img src="images/illustrations/alcohol.svg" alt="Агиоргитико червено вино"></a></div>
           <div class="product-body">
-            <h4>Агиоргитико — червено вино</h4>
+            <h4><a href="product.html?id=wine-agiorgitiko">Агиоргитико — червено вино</a></h4>
             <p class="desc">Плътно червено вино от лозята на Немея.</p>
             <div class="product-foot"><div><span class="price">21.90 лв</span> <span class="unit">/ 750мл</span></div>
               <button class="add-btn" data-id="wine-agiorgitiko" data-name="Агиоргитико червено вино" data-price="21.90" data-unit="750мл" data-category="Алкохол" data-img="images/illustrations/alcohol.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -320,9 +330,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="гръцка бира митос">
-          <div class="product-figure"><img src="images/illustrations/alcohol.svg" alt="Бира Митос"></div>
+          <div class="product-figure"><a href="product.html?id=beer-mythos" class="figure-link"><img src="images/illustrations/alcohol.svg" alt="Бира Митос"></a></div>
           <div class="product-body">
-            <h4>Гръцка бира "Митос"</h4>
+            <h4><a href="product.html?id=beer-mythos">Гръцка бира "Митос"</a></h4>
             <p class="desc">Лека и освежаваща светла бира, 500мл.</p>
             <div class="product-foot"><div><span class="price">4.50 лв</span> <span class="unit">/ 500мл</span></div>
               <button class="add-btn" data-id="beer-mythos" data-name="Бира Митос" data-price="4.50" data-unit="500мл" data-category="Алкохол" data-img="images/illustrations/alcohol.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -330,9 +340,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="метакса 5 звезди">
-          <div class="product-figure"><img src="images/illustrations/alcohol.svg" alt="Метакса 5 звезди"></div>
+          <div class="product-figure"><a href="product.html?id=metaxa-5" class="figure-link"><img src="images/illustrations/alcohol.svg" alt="Метакса 5 звезди"></a></div>
           <div class="product-body">
-            <h4>Метакса 5*</h4>
+            <h4><a href="product.html?id=metaxa-5">Метакса 5*</a></h4>
             <p class="desc">Изискан гръцки брандито с богат аромат.</p>
             <div class="product-foot"><div><span class="price">26.90 лв</span> <span class="unit">/ 700мл</span></div>
               <button class="add-btn" data-id="metaxa-5" data-name="Метакса 5*" data-price="26.90" data-unit="700мл" data-category="Алкохол" data-img="images/illustrations/alcohol.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -340,9 +350,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="розе москофилеро">
-          <div class="product-figure"><img src="images/illustrations/alcohol.svg" alt="Розе Москофилеро"></div>
+          <div class="product-figure"><a href="product.html?id=rose-moschofilero" class="figure-link"><img src="images/illustrations/alcohol.svg" alt="Розе Москофилеро"></a></div>
           <div class="product-body">
-            <h4>Розе Москофилеро</h4>
+            <h4><a href="product.html?id=rose-moschofilero">Розе Москофилеро</a></h4>
             <p class="desc">Ароматно розе с нотки на цитрус и рози.</p>
             <div class="product-foot"><div><span class="price">20.90 лв</span> <span class="unit">/ 750мл</span></div>
               <button class="add-btn" data-id="rose-moschofilero" data-name="Розе Москофилеро" data-price="20.90" data-unit="750мл" data-category="Алкохол" data-img="images/illustrations/alcohol.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -357,9 +367,9 @@
       <h2><svg class="cat-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h12l-1 18a2 2 0 01-2 2H9a2 2 0 01-2-2z"/><path d="M6 9h12"/></svg> Безалкохолни напитки</h2>
       <div class="product-grid" style="margin-top:28px;">
         <div class="product-card" data-search-name="гръцка лимонада">
-          <div class="product-figure"><span class="product-tag">Хит</span><img src="images/illustrations/drinks.svg" alt="Гръцка лимонада"></div>
+          <div class="product-figure"><span class="product-tag">Хит</span><a href="product.html?id=lemonade-330" class="figure-link"><img src="images/illustrations/drinks.svg" alt="Гръцка лимонада"></a></div>
           <div class="product-body">
-            <h4>Гръцка лимонада</h4>
+            <h4><a href="product.html?id=lemonade-330">Гръцка лимонада</a></h4>
             <p class="desc">Освежаваща домашна лимонада с мента.</p>
             <div class="product-foot"><div><span class="price">3.20 лв</span> <span class="unit">/ 330мл</span></div>
               <button class="add-btn" data-id="lemonade-330" data-name="Гръцка лимонада" data-price="3.20" data-unit="330мл" data-category="Безалкохолни напитки" data-img="images/illustrations/drinks.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -367,9 +377,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="минерална вода сариза">
-          <div class="product-figure"><img src="images/illustrations/drinks.svg" alt="Минерална вода Сариза"></div>
+          <div class="product-figure"><a href="product.html?id=water-sariza" class="figure-link"><img src="images/illustrations/drinks.svg" alt="Минерална вода Сариза"></a></div>
           <div class="product-body">
-            <h4>Минерална вода "Сариза"</h4>
+            <h4><a href="product.html?id=water-sariza">Минерална вода "Сариза"</a></h4>
             <p class="desc">Прочута гръцка изворна минерална вода.</p>
             <div class="product-foot"><div><span class="price">2.20 лв</span> <span class="unit">/ 500мл</span></div>
               <button class="add-btn" data-id="water-sariza" data-name="Минерална вода Сариза" data-price="2.20" data-unit="500мл" data-category="Безалкохолни напитки" data-img="images/illustrations/drinks.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -377,9 +387,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="фрапе кафе">
-          <div class="product-figure"><img src="images/illustrations/drinks.svg" alt="Фрапе кафе"></div>
+          <div class="product-figure"><a href="product.html?id=frappe" class="figure-link"><img src="images/illustrations/drinks.svg" alt="Фрапе кафе"></a></div>
           <div class="product-body">
-            <h4>Гръцко фрапе</h4>
+            <h4><a href="product.html?id=frappe">Гръцко фрапе</a></h4>
             <p class="desc">Студено разбито кафе с пяна, по гръцка традиция.</p>
             <div class="product-foot"><div><span class="price">4.50 лв</span> <span class="unit">/ 400мл</span></div>
               <button class="add-btn" data-id="frappe" data-name="Гръцко фрапе" data-price="4.50" data-unit="400мл" data-category="Безалкохолни напитки" data-img="images/illustrations/drinks.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -387,9 +397,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="айрян">
-          <div class="product-figure"><img src="images/illustrations/drinks.svg" alt="Айрян"></div>
+          <div class="product-figure"><a href="product.html?id=ayran" class="figure-link"><img src="images/illustrations/drinks.svg" alt="Айрян"></a></div>
           <div class="product-body">
-            <h4>Айрян</h4>
+            <h4><a href="product.html?id=ayran">Айрян</a></h4>
             <p class="desc">Освежаваща напитка от кисело мляко.</p>
             <div class="product-foot"><div><span class="price">2.90 лв</span> <span class="unit">/ 330мл</span></div>
               <button class="add-btn" data-id="ayran" data-name="Айрян" data-price="2.90" data-unit="330мл" data-category="Безалкохолни напитки" data-img="images/illustrations/drinks.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -397,9 +407,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="прясно изцеден портокалов сок">
-          <div class="product-figure"><img src="images/illustrations/drinks.svg" alt="Портокалов сок"></div>
+          <div class="product-figure"><a href="product.html?id=orange-juice" class="figure-link"><img src="images/illustrations/drinks.svg" alt="Портокалов сок"></a></div>
           <div class="product-body">
-            <h4>Прясно изцеден портокалов сок</h4>
+            <h4><a href="product.html?id=orange-juice">Прясно изцеден портокалов сок</a></h4>
             <p class="desc">100% натурален сок от узрели портокали.</p>
             <div class="product-foot"><div><span class="price">4.90 лв</span> <span class="unit">/ 330мл</span></div>
               <button class="add-btn" data-id="orange-juice" data-name="Портокалов сок" data-price="4.90" data-unit="330мл" data-category="Безалкохолни напитки" data-img="images/illustrations/drinks.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -407,9 +417,9 @@
           </div>
         </div>
         <div class="product-card" data-search-name="газирана вода">
-          <div class="product-figure"><img src="images/illustrations/drinks.svg" alt="Газирана вода"></div>
+          <div class="product-figure"><a href="product.html?id=sparkling-water" class="figure-link"><img src="images/illustrations/drinks.svg" alt="Газирана вода"></a></div>
           <div class="product-body">
-            <h4>Газирана вода</h4>
+            <h4><a href="product.html?id=sparkling-water">Газирана вода</a></h4>
             <p class="desc">Изворна газирана вода за освежаване.</p>
             <div class="product-foot"><div><span class="price">2.50 лв</span> <span class="unit">/ 330мл</span></div>
               <button class="add-btn" data-id="sparkling-water" data-name="Газирана вода" data-price="2.50" data-unit="330мл" data-category="Безалкохолни напитки" data-img="images/illustrations/drinks.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></button>
