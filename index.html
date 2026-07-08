@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greek Feast — Прясна гръцка храна за вашата заявка</title>
+<meta name="description" content="Официален представител на Papa Georgio (Гърция). Прясна и качествена гръцка храна — салати, рибни ястия, шишове, вино и напитки. Направете заявка онлайн.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brandmark">
+      <img src="images/logo.png" alt="Greek Feast" class="logo-img">
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html" class="active">Начало</a>
+      <a href="catalog.html">Продукти</a>
+      <a href="about.html">За нас</a>
+      <a href="contact.html">Контакти</a>
+    </nav>
+    <div class="header-actions">
+      <a href="contact.html" class="btn btn-outline btn-sm">Свържете се</a>
+      <a href="order.html" class="cart-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        Заявка <span class="cart-count" id="cartCount">0</span>
+      </a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-badge"><span class="dot"></span> Официален представител на Papa Georgio — Гърция</div>
+      <h1>Прясна гръцка храна, <em>директно</em> от Гърция до вашата маса</h1>
+      <p class="lede">Салати, рибни специалитети, сочни шишове на скара, вино, узо и безалкохолни напитки — всичко избрано с грижа за автентичен гръцки вкус и неизменно високо качество.</p>
+      <div class="hero-actions">
+        <a href="catalog.html" class="btn btn-primary">Разгледай храната</a>
+        <a href="order.html" class="btn btn-outline">Направи заявка</a>
+      </div>
+    </div>
+    <div class="hero-figure">
+      <div class="arch-frame">
+        <img src="images/hero-taverna.png" alt="Прясна гръцка трапеза със салата, риба на скара, зехтин и хляб">
+      </div>
+      <div class="float-badge">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0D5EAF" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <div><strong>100% свежо</strong><span>Ежедневна доставка от Гърция</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="meander"></div>
+
+<section class="trust-bar">
+  <div class="marquee">
+    <div class="marquee-track">
+      <!-- repeated 4x for a seamless continuous loop -->
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#7EB6E8" stroke-width="1.8"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="15" cy="12" r="1.4" fill="#7EB6E8"/></svg>
+        <span>Ежедневна свежест</span>
+      </div>
+      <span class="trust-dot"></span>
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#7EB6E8" stroke-width="1.8"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>Автентични гръцки продукти</span>
+      </div>
+      <span class="trust-dot"></span>
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#7EB6E8" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <span>Официален представител на Papa Georgio</span>
+      </div>
+      <span class="trust-dot"></span>
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#7EB6E8" stroke-width="1.8"><rect x="1" y="6" width="15" height="12" rx="1"/><path d="M16 10h4l3 3v5h-7z"/><circle cx="6" cy="20" r="2"/><circle cx="18" cy="20" r="2"/></svg>
+        <span>Бърза доставка</span>
+      </div>
+      <span class="trust-dot"></span>
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#7EB6E8" stroke-width="1.8"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="15" cy="12" r="1.4" fill="#7EB6E8"/></svg>
+        <span>Ежедневна свежест</span>
+      </div>
+      <span class="trust-dot"></span>
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#7EB6E8" stroke-width="1.8"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>Автентични гръцки продукти</span>
+      </div>
+      <span class="trust-dot"></span>
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#7EB6E8" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <span>Официален представител на Papa Georgio</span>
+      </div>
+      <span class="trust-dot"></span>
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#7EB6E8" stroke-width="1.8"><rect x="1" y="6" width="15" height="12" rx="1"/><path d="M16 10h4l3 3v5h-7z"/><circle cx="6" cy="20" r="2"/><circle cx="18" cy="20" r="2"/></svg>
+        <span>Бърза доставка</span>
+      </div>
+      <span class="trust-dot"></span>
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#7EB6E8" stroke-width="1.8"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="15" cy="12" r="1.4" fill="#7EB6E8"/></svg>
+        <span>Ежедневна свежест</span>
+      </div>
+      <span class="trust-dot"></span>
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#7EB6E8" stroke-width="1.8"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>Автентични гръцки продукти</span>
+      </div>
+      <span class="trust-dot"></span>
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#7EB6E8" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <span>Официален представител на Papa Georgio</span>
+      </div>
+      <span class="trust-dot"></span>
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#7EB6E8" stroke-width="1.8"><rect x="1" y="6" width="15" height="12" rx="1"/><path d="M16 10h4l3 3v5h-7z"/><circle cx="6" cy="20" r="2"/><circle cx="18" cy="20" r="2"/></svg>
+        <span>Бърза доставка</span>
+      </div>
+      <span class="trust-dot"></span>
+    </div>
+  </div>
+</section>
+
+<div class="meander light"></div>
+
+<section id="categories">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Категории</span>
+      <h2>Всичко, от което имате нужда за гръцка трапеза</h2>
+      <p class="lede">От свежи салати до отлежало вино — подбрана селекция качествени гръцки продукти на едно място.</p>
+    </div>
+    <div class="category-grid">
+
+      <a href="catalog.html#salads" class="category-card">
+        <div class="cat-figure"><img src="images/illustrations/salad.svg" alt="Гръцки салати"></div>
+        <div class="cat-body">
+          <h3>Салати</h3>
+          <p>Хориатики, дакос и още — свежест във всяка хапка.</p>
+          <span class="cat-link">Разгледай <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a href="catalog.html#fish" class="category-card">
+        <div class="cat-figure"><img src="images/illustrations/fish.svg" alt="Рибни ястия"></div>
+        <div class="cat-body">
+          <h3>Рибни ястия</h3>
+          <p>Прясна риба и морски дарове, приготвени на скара.</p>
+          <span class="cat-link">Разгледай <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a href="catalog.html#chicken" class="category-card">
+        <div class="cat-figure"><img src="images/illustrations/chicken-skewer.svg" alt="Пилешки шишове"></div>
+        <div class="cat-body">
+          <h3>Пилешки шишове</h3>
+          <p>Сочно пилешко сувлаки на скара, гръцки маринати.</p>
+          <span class="cat-link">Разгледай <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a href="catalog.html#pork" class="category-card">
+        <div class="cat-figure"><img src="images/illustrations/pork-skewer.svg" alt="Свински шишове"></div>
+        <div class="cat-body">
+          <h3>Свински шишове</h3>
+          <p>Класическо свинско сувлаки и кебап на дървени въглища.</p>
+          <span class="cat-link">Разгледай <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a href="catalog.html#alcohol" class="category-card">
+        <div class="cat-figure"><img src="images/illustrations/alcohol.svg" alt="Алкохол"></div>
+        <div class="cat-body">
+          <h3>Алкохол</h3>
+          <p>Узо, метакса и гръцки вина от известни лозя.</p>
+          <span class="cat-link">Разгледай <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a href="catalog.html#drinks" class="category-card">
+        <div class="cat-figure"><img src="images/illustrations/drinks.svg" alt="Безалкохолни напитки"></div>
+        <div class="cat-body">
+          <h3>Безалкохолни напитки</h3>
+          <p>Лимонада, фрапе и освежаващи напитки за всеки ден.</p>
+          <span class="cat-link">Разгледай <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow on-dark">Защо нас</span>
+      <h2>Качество, на което можете да разчитате</h2>
+      <p class="lede" style="color:#C7D9EE; margin:0 auto;">Работим директно с гръцки производители, за да достигне истинският вкус на Гърция до вашата трапеза.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#D4A94E" stroke-width="1.8"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h4>Директен внос</h4>
+        <p>Продуктите пътуват директно от Гърция — без излишни посредници.</p>
+      </div>
+      <div class="why-item">
+        <div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#D4A94E" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+        <h4>Проверено качество</h4>
+        <p>Всеки продукт е подбран лично заради вкуса и свежестта си.</p>
+      </div>
+      <div class="why-item">
+        <div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#D4A94E" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h4>Ежедневна свежест</h4>
+        <p>Кратки срокове от доставка до вашата маса — вкус като на място.</p>
+      </div>
+      <div class="why-item">
+        <div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#D4A94E" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h4>Официално партньорство</h4>
+        <p>Официален представител на гръцката фирма Papa Georgio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="meander light"></div>
+
+<section id="featured" class="bg-cream">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Препоръчани</span>
+      <h2>Любими продукти на нашите клиенти</h2>
+    </div>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-figure"><span class="product-tag">Хит</span><img src="images/illustrations/salad.svg" alt="Гръцка салата"></div>
+        <div class="product-body">
+          <h4>Гръцка салата Хориатики</h4>
+          <p class="desc">Домати, краставици, лук, маслини и фета сирене.</p>
+          <div class="product-foot">
+            <div><span class="price">9.90 лв</span> <span class="unit">/ 450г</span></div>
+            <button class="add-btn" data-id="salad-horiatiki" data-name="Гръцка салата Хориатики" data-price="9.90" data-unit="450г" data-category="Салати" data-img="images/illustrations/salad.svg" aria-label="Добави към заявката">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-figure"><img src="images/illustrations/fish.svg" alt="Морски бран на скара"></div>
+        <div class="product-body">
+          <h4>Морски бран на скара</h4>
+          <p class="desc">Цяла риба, приготвена на скара с лимон и билки.</p>
+          <div class="product-foot">
+            <div><span class="price">16.90 лв</span> <span class="unit">/ бр.</span></div>
+            <button class="add-btn" data-id="fish-brancho" data-name="Морски бран на скара" data-price="16.90" data-unit="1 бр." data-category="Рибни ястия" data-img="images/illustrations/fish.svg" aria-label="Добави към заявката">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-figure"><span class="product-tag">Хит</span><img src="images/illustrations/chicken-skewer.svg" alt="Пилешко сувлаки"></div>
+        <div class="product-body">
+          <h4>Пилешко сувлаки</h4>
+          <p class="desc">Класическо гръцко сувлаки, маринован и на скара.</p>
+          <div class="product-foot">
+            <div><span class="price">8.90 лв</span> <span class="unit">/ 2 бр.</span></div>
+            <button class="add-btn" data-id="chicken-souvlaki" data-name="Пилешко сувлаки" data-price="8.90" data-unit="2 бр." data-category="Пилешки шишове" data-img="images/illustrations/chicken-skewer.svg" aria-label="Добави към заявката">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-figure"><img src="images/illustrations/pork-skewer.svg" alt="Свинско сувлаки"></div>
+        <div class="product-body">
+          <h4>Свинско сувлаки</h4>
+          <p class="desc">Сочно свинско на скара по традиционна рецепта.</p>
+          <div class="product-foot">
+            <div><span class="price">8.50 лв</span> <span class="unit">/ 2 бр.</span></div>
+            <button class="add-btn" data-id="pork-souvlaki" data-name="Свинско сувлаки" data-price="8.50" data-unit="2 бр." data-category="Свински шишове" data-img="images/illustrations/pork-skewer.svg" aria-label="Добави към заявката">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-figure"><img src="images/illustrations/alcohol.svg" alt="Узо"></div>
+        <div class="product-body">
+          <h4>Узо, 700мл</h4>
+          <p class="desc">Автентичен гръцки анасонов ликьор.</p>
+          <div class="product-foot">
+            <div><span class="price">24.90 лв</span> <span class="unit">/ 700мл</span></div>
+            <button class="add-btn" data-id="ouzo-700" data-name="Узо 700мл" data-price="24.90" data-unit="700мл" data-category="Алкохол" data-img="images/illustrations/alcohol.svg" aria-label="Добави към заявката">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-figure"><img src="images/illustrations/drinks.svg" alt="Гръцка лимонада"></div>
+        <div class="product-body">
+          <h4>Гръцка лимонада</h4>
+          <p class="desc">Освежаваща домашна лимонада с мента.</p>
+          <div class="product-foot">
+            <div><span class="price">3.20 лв</span> <span class="unit">/ 330мл</span></div>
+            <button class="add-btn" data-id="lemonade-330" data-name="Гръцка лимонада" data-price="3.20" data-unit="330мл" data-category="Безалкохолни напитки" data-img="images/illustrations/drinks.svg" aria-label="Добави към заявката">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-figure"><img src="images/illustrations/meze.svg" alt="Гръцко мезе плато"></div>
+        <div class="product-body">
+          <h4>Гръцко мезе плато</h4>
+          <p class="desc">Дзадзики, хумус, маслини, питка и зеленчуци.</p>
+          <div class="product-foot">
+            <div><span class="price">13.90 лв</span> <span class="unit">/ споделяне</span></div>
+            <button class="add-btn" data-id="meze-platter" data-name="Гръцко мезе плато" data-price="13.90" data-unit="за споделяне" data-category="Салати" data-img="images/illustrations/meze.svg" aria-label="Добави към заявката">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-figure"><img src="images/illustrations/fish.svg" alt="Октопод на скара"></div>
+        <div class="product-body">
+          <h4>Октопод на скара</h4>
+          <p class="desc">Крехък октопод, приготвен по гръцки — с олио и оцет.</p>
+          <div class="product-foot">
+            <div><span class="price">19.90 лв</span> <span class="unit">/ 300г</span></div>
+            <button class="add-btn" data-id="octopus-grill" data-name="Октопод на скара" data-price="19.90" data-unit="300г" data-category="Рибни ястия" data-img="images/illustrations/fish.svg" aria-label="Добави към заявката">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center mt-40">
+      <a href="catalog.html" class="btn btn-outline">Виж целия каталог</a>
+    </div>
+  </div>
+</section>
+
+<section class="partner-section">
+  <div class="container">
+    <div class="partner-grid">
+      <div class="partner-text">
+        <div class="partner-seal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#D4A94E" stroke-width="2"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z"/></svg>
+          Официален представител на Papa Georgio
+        </div>
+        <h2>Партньорство с Papa Georgio — Гърция</h2>
+        <p>Ние сме официален представител на гръцката фирма Papa Georgio и внасяме директно от Гърция подбрани, качествени продукти — от зехтин и маслини до месо и морски дарове. Всеки продукт е гаранция за автентичен вкус и произход.</p>
+        <ul class="partner-points">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> Официално и проверимо партньорство</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> Директен внос от Гърция без посредници</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> Стриктен контрол на качеството на всяка пратка</li>
+        </ul>
+      </div>
+      <div class="arch-frame">
+        <img src="images/illustrations/olive-branch.svg" alt="Гръцки зехтин и маслини">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Как работи</span>
+      <h2>Заявката отнема само минута</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-connector"></div>
+        <div class="step-num">1</div>
+        <h4>Избирате продукти</h4>
+        <p>Разгледайте каталога и добавете желаните продукти към заявката си.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-connector"></div>
+        <div class="step-num">2</div>
+        <h4>Изпращате заявка</h4>
+        <p>Попълвате кратка форма с данни за контакт и желана дата за доставка.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>Потвърждаваме и доставяме</h4>
+        <p>Свързваме се с вас за потвърждение на детайлите и организираме доставка.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-cream">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Отзиви</span>
+      <h2>Какво казват нашите клиенти</h2>
+    </div>
+    <div class="testi-track">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Салатата и рибата бяха невероятно свежи — усети се, че продуктите наистина идват директно от Гърция."</p>
+        <div class="testi-person">
+          <div class="testi-avatar">Р.И.</div>
+          <div><strong>Радост И.</strong><span>Постоянен клиент</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Направих заявка за фамилно събиране — шишовете и мезето бяха страхотни, а доставката точна."</p>
+        <div class="testi-person">
+          <div class="testi-avatar">Д.П.</div>
+          <div><strong>Димитър П.</strong><span>Клиент за събития</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Узото и виното са точно като от Гърция. Официалният представител си личи по качеството."</p>
+        <div class="testi-person">
+          <div class="testi-avatar">М.С.</div>
+          <div><strong>Мария С.</strong><span>Редовен клиент</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="container">
+    <div class="cta-section">
+      <div>
+        <span class="eyebrow on-dark">Готови сте?</span>
+        <h2>Направете вашата заявка за прясна гръцка храна днес</h2>
+        <p>Разгледайте пълния каталог или ни пишете директно — ще се свържем с вас за потвърждение.</p>
+        <div class="hero-actions">
+          <a href="catalog.html" class="btn btn-gold">Разгледай каталога</a>
+          <a href="order.html" class="btn btn-outline on-dark">Към заявката ми</a>
+        </div>
+      </div>
+      <form class="cta-form" id="quickContactForm" action="https://formsubmit.co/bojidar453@abv.bg" method="POST">
+        <h4>Бързо запитване</h4>
+        <input type="hidden" name="_subject" value="Ново бързо запитване — Greek Feast">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="field">
+          <label for="qName">Име</label>
+          <input type="text" id="qName" name="Име" required placeholder="Вашето име">
+        </div>
+        <div class="field">
+          <label for="qPhone">Телефон</label>
+          <input type="tel" id="qPhone" name="Телефон" required placeholder="08xx xxx xxx">
+        </div>
+        <div class="field">
+          <label for="qMsg">Съобщение</label>
+          <textarea id="qMsg" name="Съобщение" rows="3" placeholder="За какво се интересувате?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Изпрати запитване</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="meander light" style="margin-bottom:50px;"></div>
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="brandmark">
+          <img src="images/logo.png" alt="Greek Feast" class="logo-img">
+        </a>
+        <p>Официален представител на Papa Georgio — прясна и качествена гръцка храна с доставка по заявка.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C7D9EE" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C7D9EE" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="index.html">Начало</a></li>
+          <li><a href="catalog.html">Продукти</a></li>
+          <li><a href="about.html">За нас</a></li>
+          <li><a href="order.html">Моята заявка</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Категории</h4>
+        <ul>
+          <li><a href="catalog.html#salads">Салати</a></li>
+          <li><a href="catalog.html#fish">Рибни ястия</a></li>
+          <li><a href="catalog.html#chicken">Пилешки шишове</a></li>
+          <li><a href="catalog.html#alcohol">Алкохол</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Контакти</h4>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span>+359 88 888 8888</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <span>bojidar453@abv.bg</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>София, България</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span>Пон–Съб: 09:00–19:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Greek Feast. Официален представител на Papa Georgio.</div>
+</footer>
+
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+  <span id="toastMsg">Добавено към заявката</span>
+</div>
+
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
