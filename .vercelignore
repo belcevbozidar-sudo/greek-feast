@@ -1,7 +1,6 @@
-.DS_Store
-.vercel
 node_modules
-.env.local
-.convex
+convex
 package.json
 package-lock.json
+.env.local
+.git

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Админ панел — Greek Feast</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<!-- ============ ВХОД ============ -->
+<div id="loginView" class="login-view">
+  <form class="login-card" id="loginForm" autocomplete="off">
+    <div class="login-logo">Greek Feast</div>
+    <h1>Админ панел</h1>
+    <p class="login-sub">Въведете администраторската парола, за да продължите.</p>
+
+    <label class="field-label" for="pw">Парола</label>
+    <div class="pw-wrap">
+      <input type="password" id="pw" placeholder="••••••••••" autocomplete="current-password" required>
+      <button type="button" class="pw-toggle" id="pwToggle" aria-label="Покажи паролата">👁</button>
+    </div>
+
+    <label class="remember">
+      <input type="checkbox" id="remember">
+      <span>Запомни това устройство за 30 дни</span>
+    </label>
+
+    <div class="login-error" id="loginError" style="display:none;"></div>
+
+    <button type="submit" class="btn-primary" id="loginBtn">Вход</button>
+  </form>
+</div>
+
+<!-- ============ ТАБЛО ============ -->
+<div id="dashboardView" class="dashboard" style="display:none;">
+  <header class="admin-topbar">
+    <div class="admin-brand">Greek Feast — Админ</div>
+    <div class="admin-top-actions">
+      <a href="index.html" class="btn-ghost" target="_blank" rel="noopener">Виж сайта ↗</a>
+      <button type="button" class="btn-ghost" id="logoutBtn">Изход</button>
+    </div>
+  </header>
+
+  <nav class="admin-tabs">
+    <button class="admin-tab active" data-tab="products">Продукти</button>
+    <button class="admin-tab" data-tab="categories">Категории</button>
+  </nav>
+
+  <!-- ---- ПРОДУКТИ ---- -->
+  <section class="admin-panel" id="panel-products">
+    <div class="panel-toolbar">
+      <div class="toolbar-filters">
+        <select id="adminCatFilter" class="admin-select"></select>
+        <select id="adminSort" class="admin-select">
+          <option value="manual">Подредба по подразбиране</option>
+          <option value="newest">Най-нови</option>
+          <option value="price-asc">Цена ↑</option>
+          <option value="price-desc">Цена ↓</option>
+          <option value="name">Име (А–Я)</option>
+        </select>
+      </div>
+      <button type="button" class="btn-primary" id="addProductBtn">+ Добави артикул</button>
+    </div>
+    <div id="adminProductList" class="admin-product-list"></div>
+  </section>
+
+  <!-- ---- КАТЕГОРИИ ---- -->
+  <section class="admin-panel" id="panel-categories" style="display:none;">
+    <div class="cat-add-row">
+      <input type="text" id="newCatName" class="admin-input" placeholder="Име на нова категория">
+      <button type="button" class="btn-primary" id="addCatBtn">Добави категория</button>
+    </div>
+    <div id="adminCatList" class="admin-cat-list"></div>
+  </section>
+</div>
+
+<!-- ============ ФОРМА ЗА ПРОДУКТ (модал) ============ -->
+<div id="productModal" class="modal" style="display:none;">
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div class="modal-card">
+    <div class="modal-head">
+      <h2 id="modalTitle">Нов артикул</h2>
+      <button type="button" class="modal-close" id="modalClose" aria-label="Затвори">✕</button>
+    </div>
+
+    <form id="productForm" class="modal-body" autocomplete="off">
+      <!-- Снимки най-отгоре -->
+      <div class="form-group">
+        <label class="field-label">Снимки <span class="hint">(първата е главната — плъзнете за пренареждане)</span></label>
+        <div class="image-drop" id="imageDrop">
+          <input type="file" id="imageInput" accept="image/*" multiple hidden>
+          <button type="button" class="image-add-btn" id="imageAddBtn">
+            <span class="plus">+</span>
+            <span>Избери снимки от устройството</span>
+          </button>
+        </div>
+        <div class="image-list" id="imageList"></div>
+        <div class="upload-status" id="uploadStatus"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="field-label" for="pName">Име</label>
+        <input type="text" id="pName" class="admin-input" required maxlength="120">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="field-label" for="pPrice">Цена (в евро €)</label>
+          <input type="number" id="pPrice" class="admin-input" step="0.01" min="0" required>
+          <div class="price-preview" id="pricePreview"></div>
+        </div>
+        <div class="form-group">
+          <label class="field-label" for="pUnit">Мерна единица</label>
+          <input type="text" id="pUnit" class="admin-input" placeholder="напр. 450г / 2 бр." maxlength="40">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="field-label" for="pCategory">Категория</label>
+          <select id="pCategory" class="admin-select" required></select>
+        </div>
+        <div class="form-group">
+          <label class="field-label" for="pTag">Етикет <span class="hint">(по избор)</span></label>
+          <input type="text" id="pTag" class="admin-input" placeholder="напр. Хит" maxlength="30">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="field-label" for="pDesc">Кратко описание</label>
+        <textarea id="pDesc" class="admin-input" rows="2" maxlength="600"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="field-label" for="pLongDesc">Пълно описание</label>
+        <textarea id="pLongDesc" class="admin-input" rows="4" maxlength="4000"></textarea>
+      </div>
+
+      <div class="modal-error" id="modalError" style="display:none;"></div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-danger" id="deleteProductBtn" style="display:none;">Изтрий</button>
+        <div class="spacer"></div>
+        <button type="button" class="btn-ghost" id="cancelBtn">Отказ</button>
+        <button type="submit" class="btn-primary" id="saveProductBtn">Запази</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="admin-toast" id="adminToast"></div>
+
+<script src="js/price.js"></script>
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>

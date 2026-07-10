@@ -511,3 +511,30 @@ section { padding: 90px 0; position: relative; }
   .cart-row { grid-template-columns: 56px 1fr; grid-template-rows: auto auto; }
   .cart-row .qty-control { grid-column: 2; }
 }
+
+/* ===== Цени в евро + левове ===== */
+.price-bgn { display: block; color: var(--ink-soft); font-size: 0.8rem; font-weight: 500; margin-top: 2px; }
+.price-bgn-big { color: var(--ink-soft); font-size: 1.1rem; font-weight: 600; }
+
+/* ===== Каталог: инструменти за сортиране ===== */
+.catalog-toolbar { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-bottom: 4px; }
+.sort-label { font-size: 0.88rem; color: var(--ink-soft); font-weight: 600; }
+.sort-select { padding: 9px 14px; border: 1.5px solid #DCE6EE; border-radius: 10px; background: var(--white); color: var(--ink); font-family: inherit; font-size: 0.9rem; cursor: pointer; }
+.catalog-loading { text-align: center; color: var(--ink-soft); padding: 48px 0; grid-column: 1 / -1; }
+
+/* ===== Продуктова галерия (стрелки + плъзгане) ===== */
+.gallery-main { position: relative; aspect-ratio: 4/3; }
+.gallery-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .3s ease; }
+.gallery-slide.active { opacity: 1; }
+.gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,.92); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink); box-shadow: 0 2px 10px rgba(0,0,0,.18); z-index: 3; }
+.gallery-arrow svg { width: 20px; height: 20px; }
+.gallery-arrow.prev { left: 12px; }
+.gallery-arrow.next { right: 12px; }
+.gallery-arrow:hover { background: #fff; }
+.gallery-dots { display: flex; gap: 8px; justify-content: center; margin-top: 16px; }
+.gallery-dot { width: 9px; height: 9px; border-radius: 50%; border: none; background: #D3DAE1; cursor: pointer; padding: 0; transition: background .2s; }
+.gallery-dot.active { background: var(--gold); }
+.gallery-thumbs { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.gallery-thumb { width: 62px; height: 62px; border-radius: 10px; overflow: hidden; border: 2px solid transparent; padding: 0; cursor: pointer; background: none; }
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery-thumb.active { border-color: var(--gold); }

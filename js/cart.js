@@ -118,23 +118,26 @@ function renderDrawer() {
   }
 
   if (foot) foot.style.display = '';
+  const e = window.escapeHtml || (s => s);
   body.innerHTML = cart.map(item => `
-    <div class="cart-row" data-id="${item.id}">
-      <div class="thumb"><img src="${item.img}" alt="${item.name}"></div>
+    <div class="cart-row" data-id="${e(item.id)}">
+      <div class="thumb"><img src="${e(item.img)}" alt="${e(item.name)}"></div>
       <div>
-        <div class="name">${item.name}</div>
-        <div class="cat">${item.unit} · ${parseFloat(item.price).toFixed(2)} лв</div>
+        <div class="name">${e(item.name)}</div>
+        <div class="cat">${e(item.unit)} · ${e(window.formatEur(item.price))} · ${e(window.formatBgn(item.price))}</div>
       </div>
       <div class="qty-control">
         <button type="button" class="qty-minus" aria-label="Намали">−</button>
-        <span>${item.qty}</span>
+        <span>${e(item.qty)}</span>
         <button type="button" class="qty-plus" aria-label="Увеличи">+</button>
       </div>
       <button type="button" class="remove-btn">Премахни</button>
     </div>
   `).join('');
 
-  document.getElementById('drawerTotal').textContent = getCartTotal().toFixed(2) + ' лв';
+  const total = getCartTotal();
+  document.getElementById('drawerTotal').innerHTML =
+    `${e(window.formatEur(total))} <span class="price-bgn">${e(window.formatBgn(total))}</span>`;
 }
 
 function openDrawer() {

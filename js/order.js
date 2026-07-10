@@ -14,24 +14,27 @@ function renderCartList() {
   emptyEl.style.display = 'none';
   summaryBox.style.display = '';
 
+  const e = window.escapeHtml || (s => s);
   listEl.innerHTML = cart.map(item => `
-    <div class="cart-row" data-id="${item.id}">
-      <div class="thumb"><img src="${item.img}" alt="${item.name}"></div>
+    <div class="cart-row" data-id="${e(item.id)}">
+      <div class="thumb"><img src="${e(item.img)}" alt="${e(item.name)}"></div>
       <div>
-        <div class="name">${item.name}</div>
-        <div class="cat">${item.category} · ${item.unit} · ${parseFloat(item.price).toFixed(2)} лв</div>
+        <div class="name">${e(item.name)}</div>
+        <div class="cat">${e(item.unit)} · ${e(window.formatEur(item.price))} · ${e(window.formatBgn(item.price))}</div>
       </div>
       <div class="qty-control">
         <button type="button" class="qty-minus" aria-label="Намали">−</button>
-        <span>${item.qty}</span>
+        <span>${e(item.qty)}</span>
         <button type="button" class="qty-plus" aria-label="Увеличи">+</button>
       </div>
       <button type="button" class="remove-btn">Премахни</button>
     </div>
   `).join('');
 
+  const total = getCartTotal();
   document.getElementById('sumCount').textContent = getCartCount();
-  document.getElementById('sumTotal').textContent = getCartTotal().toFixed(2) + ' лв';
+  document.getElementById('sumTotal').innerHTML =
+    `${e(window.formatEur(total))} <span class="price-bgn">${e(window.formatBgn(total))}</span>`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -63,8 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
       showToast('Заявката е празна');
       return;
     }
-    const summary = cart.map(i => `${i.name} x${i.qty} (${i.unit}) — ${(i.qty * i.price).toFixed(2)} лв`).join('\n');
+    const summary = cart.map(i => {
+      const lineEur = i.qty * parseFloat(i.price);
+      return `${i.name} x${i.qty} (${i.unit}) — ${window.formatEur(lineEur)} / ${window.formatBgn(lineEur)}`;
+    }).join('\n');
+    const total = getCartTotal();
     document.getElementById('orderItemsField').value =
-      summary + `\n\nОбщо: ${getCartTotal().toFixed(2)} лв (приблизително)`;
+      summary + `\n\nОбщо: ${window.formatEur(total)} / ${window.formatBgn(total)} (приблизително)`;
   });
 });
