@@ -114,8 +114,18 @@
           <div class="price-preview" id="pricePreview"></div>
         </div>
         <div class="form-group">
-          <label class="field-label" for="pUnit">Мерна единица</label>
-          <input type="text" id="pUnit" class="admin-input" placeholder="напр. кг / стек / кашон" maxlength="40">
+          <label class="field-label">Мерна единица / Опаковка</label>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" id="pUnitPack" class="admin-input" placeholder="Опаковка (напр. Кашон, Бутилка)" style="flex: 2;">
+            <input type="text" id="pUnitQty" class="admin-input" placeholder="Количество (напр. 10, 750)" style="flex: 1.2;">
+            <select id="pUnitType" class="admin-select" style="flex: 1; min-width: 70px; padding: 10px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit;">
+              <option value="кг">кг</option>
+              <option value="бр">бр</option>
+              <option value="л">л</option>
+              <option value="мл">мл</option>
+              <option value="г">г</option>
+            </select>
+          </div>
         </div>
       </div>
 

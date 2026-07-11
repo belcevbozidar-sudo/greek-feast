@@ -250,6 +250,24 @@ async function deleteCategory(id) {
   }
 }
 
+function parseUnitString(unitStr) {
+  unitStr = (unitStr || "").trim();
+  const regex = /^(.*?)\s*([~0-9.,]+)?\s*(кг|бр|л|мл|г)$/i;
+  const match = unitStr.match(regex);
+  if (match) {
+    return {
+      pack: match[1] ? match[1].trim() : "",
+      qty: match[2] ? match[2].trim() : "",
+      unit: match[3] ? match[3].toLowerCase() : "кг"
+    };
+  }
+  return {
+    pack: unitStr,
+    qty: "",
+    unit: "кг"
+  };
+}
+
 /* ---------------- Форма за продукт ---------------- */
 function openProductModal(product) {
   editingId = product ? product.id : null;
@@ -259,7 +277,15 @@ function openProductModal(product) {
 
   $("pName").value = product ? product.name : "";
   $("pPrice").value = product ? product.priceEur : "";
-  $("pUnit").value = product ? product.unit : "";
+
+  let unitParts = { pack: "", qty: "", unit: "кг" };
+  if (product && product.unit) {
+    unitParts = parseUnitString(product.unit);
+  }
+  $("pUnitPack").value = unitParts.pack;
+  $("pUnitQty").value = unitParts.qty;
+  $("pUnitType").value = unitParts.unit;
+
   $("pTag").value = product && product.tag ? product.tag : "";
   $("pDesc").value = product ? product.desc : "";
   $("pLongDesc").value = product ? product.longDesc : "";
@@ -413,13 +439,24 @@ async function saveProduct(e) {
   if (!isFinite(priceEur) || priceEur < 0) return showModalError("Въведете валидна цена в евро.");
   if (!categorySlug) return showModalError("Изберете категория.");
 
+  const pack = $("pUnitPack").value.trim();
+  const qty = $("pUnitQty").value.trim();
+  const unitType = $("pUnitType").value;
+  let compiledUnit = "";
+  if (pack) {
+    compiledUnit = pack + (qty ? " " + qty : "") + unitType;
+  } else {
+    compiledUnit = (qty ? qty + " " : "") + unitType;
+  }
+  compiledUnit = compiledUnit.trim();
+
   const payload = {
     token,
     name,
     desc: $("pDesc").value.trim(),
     longDesc: $("pLongDesc").value.trim(),
     priceEur,
-    unit: $("pUnit").value.trim(),
+    unit: compiledUnit,
     categorySlug,
     tag: $("pTag").value.trim() || undefined,
     images: currentImages.map((i) => i.ref),

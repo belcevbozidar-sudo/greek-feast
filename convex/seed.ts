@@ -6,7 +6,7 @@ import { SEED_CATEGORIES, SEED_PRODUCTS } from "./seedData";
 export const seed = internalMutation({
   args: {},
   handler: async (ctx) => {
-    // Изтриваме всички досегашни продукти и категории, за да заредим чисто новата B2B селекция.
+    // Изтриваме всички досегашни продукти и категории, за да заредим чисто новата селекция на едро.
     const existingProducts = await ctx.db.query("products").collect();
     for (const p of existingProducts) {
       await ctx.db.delete(p._id);
