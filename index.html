@@ -452,55 +452,89 @@
   const stepsGrid = document.querySelector('.steps-grid');
   const progressBarActive = document.querySelector('.steps-progress-active');
   const stepCards = document.querySelectorAll('.step-card');
+  if (!stepsGrid || stepCards.length < 3 || !progressBarActive) return;
 
-  function updateStepsOnScroll() {
-    if (!stepsGrid || window.innerWidth > 980) {
-      if (progressBarActive) progressBarActive.style.height = '0px';
+  const firstCircle = stepCards[0].querySelector('.step-num');
+  const secondCircle = stepCards[1].querySelector('.step-num');
+  const thirdCircle = stepCards[2].querySelector('.step-num');
+  if (!firstCircle || !secondCircle || !thirdCircle) return;
+
+  function getOffsets() {
+    const c1_center = stepCards[0].offsetTop + firstCircle.offsetTop + 32;
+    const c2_center = stepCards[1].offsetTop + secondCircle.offsetTop + 32;
+    const c3_center = stepCards[2].offsetTop + thirdCircle.offsetTop + 32;
+    return {
+      d2: c2_center - c1_center,
+      d3: c3_center - c1_center
+    };
+  }
+
+  let offsets = getOffsets();
+  window.addEventListener('resize', () => {
+    offsets = getOffsets();
+    updateProgressHeight();
+  }, { passive: true });
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -40% 0px', // Trigger when step top crosses 60% from top of viewport
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const numEl = entry.target.querySelector('.step-num');
+      if (!numEl) return;
+
+      if (entry.isIntersecting) {
+        numEl.classList.add('active');
+      } else {
+        // Keep active if it is above the trigger line (boundingClientRect.top is less than trigger threshold)
+        const triggerPoint = window.innerHeight * 0.60;
+        if (entry.boundingClientRect.top > triggerPoint) {
+          numEl.classList.remove('active');
+        }
+      }
+    });
+
+    updateProgressHeight();
+  }, observerOptions);
+
+  function updateProgressHeight() {
+    if (window.getComputedStyle(stepsGrid).display !== 'flex') {
+      progressBarActive.style.height = '0px';
       document.querySelectorAll('.step-num').forEach(num => num.classList.remove('active'));
       return;
     }
 
-    const firstCard = stepCards[0];
-    const lastCard = stepCards[stepCards.length - 1];
-    if (!firstCard || !lastCard) return;
-
-    const viewportHeight = window.innerHeight;
-    const triggerLine = viewportHeight * 0.65; // trigger line at 65% of viewport height
-
-    const firstTop = firstCard.getBoundingClientRect().top + 32; // center of first number
-    const lastTop = lastCard.getBoundingClientRect().top + 32; // center of last number
-
-    let heightPx = 0;
-    if (firstTop < triggerLine) {
-      const maxDistance = lastTop - firstTop;
-      const currentDistance = triggerLine - firstTop;
-      heightPx = Math.max(0, Math.min(maxDistance, currentDistance));
-    }
-
-    if (progressBarActive) {
-      progressBarActive.style.height = `${heightPx}px`;
-    }
-
-    stepCards.forEach((card) => {
-      const rect = card.getBoundingClientRect();
+    const activeNums = Array.from(stepCards).map(card => {
       const numEl = card.querySelector('.step-num');
-      if (!numEl) return;
-      const numCenter = rect.top + 32;
-      if (numCenter < triggerLine) {
-        numEl.classList.add('active');
-      } else {
-        numEl.classList.remove('active');
-      }
+      return numEl ? numEl.classList.contains('active') : false;
     });
+
+    let height = 0;
+    if (activeNums[2]) {
+      height = offsets.d3;
+    } else if (activeNums[1]) {
+      height = offsets.d2;
+    } else {
+      height = 0;
+    }
+
+    progressBarActive.style.height = `${height}px`;
   }
 
-  window.addEventListener('scroll', updateStepsOnScroll, { passive: true });
-  window.addEventListener('resize', updateStepsOnScroll, { passive: true });
-  
-  // Also run immediately and on a short delay to ensure layout has stabilized
-  updateStepsOnScroll();
-  setTimeout(updateStepsOnScroll, 100);
-  setTimeout(updateStepsOnScroll, 300);
+  stepCards.forEach(card => observer.observe(card));
+
+  // Run initial updates
+  setTimeout(() => {
+    offsets = getOffsets();
+    updateProgressHeight();
+  }, 100);
+  setTimeout(() => {
+    offsets = getOffsets();
+    updateProgressHeight();
+  }, 300);
 })();
 </script>
 <script src="js/price.js"></script>

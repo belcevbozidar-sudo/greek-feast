@@ -517,7 +517,7 @@ section { padding: 90px 0; position: relative; }
     background: var(--aegean);
     z-index: 0;
     height: 0px;
-    transition: height 0.1s ease;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .step-card {
     display: flex;
