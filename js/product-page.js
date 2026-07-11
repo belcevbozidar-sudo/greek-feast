@@ -2,12 +2,13 @@
 import "./store.js";
 
 const GREEK_TAGS = {
-  salads: "Φρέσκο κάθε μέρα",
-  fish: "Θαλασσινά της ημέρας",
-  chicken: "Στη σχάρα, όπως παλιά",
-  pork: "Στη σχάρα, όπως παλιά",
-  alcohol: "Γεύσεις της Ελλάδας",
-  drinks: "Δροσιστικό & φρέσκο",
+  vegetables: "Φρέσκα λαχανικά",
+  "olives-oil": "Ελαιόλαδο & ελιές",
+  dairy: "Γαλακτοκομικά προϊόντα",
+  meat: "Ελληνικά κρέατα",
+  seafood: "Φρέσκα θαλασσινά",
+  grocery: "Ελληνικά παντοπωλεία",
+  drinks: "Ελληνικά ποτά",
 };
 
 const CHECK_SVG =
@@ -207,9 +208,9 @@ async function renderProductPage() {
     '<button type="button" class="btn btn-primary" id="pdAddBtn">Добави към заявката</button>' +
     "</div>" +
     '<ul class="product-detail-badges">' +
-    "<li>" + CHECK_SVG + "<span>100% прясно и качествено</span></li>" +
+    "<li>" + CHECK_SVG + "<span>Директен внос без посредници</span></li>" +
     "<li>" + CHECK_SVG + "<span>Официален представител на Papa Georgio</span></li>" +
-    "<li>" + CHECK_SVG + "<span>Бърза доставка след потвърждение</span></li>" +
+    "<li>" + CHECK_SVG + "<span>Редовни доставки по график до обекта</span></li>" +
     "</ul></div>";
 
   setupGallery(images.length);
