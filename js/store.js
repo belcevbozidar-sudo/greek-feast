@@ -83,6 +83,29 @@ function productCardHTML(p) {
   );
 }
 
+// Обновява имената на категориите навсякъде из статичните части на сайта
+// (плочки на началната страница, връзки в долния колонтитул), за да следват админа.
+// Снимките и слоганите остават като част от дизайна; сменя се само името.
+async function syncCategoryLabels() {
+  try {
+    const cats = await listCategories();
+    const bySlug = {};
+    cats.forEach((c) => (bySlug[c.slug] = c.name));
+
+    document.querySelectorAll(".category-card").forEach((card) => {
+      const m = (card.getAttribute("href") || "").match(/#([^#]+)$/);
+      const h3 = card.querySelector("h3");
+      if (m && bySlug[m[1]] && h3) h3.textContent = bySlug[m[1]];
+    });
+    document.querySelectorAll('.footer-col a[href*="catalog.html#"]').forEach((a) => {
+      const m = (a.getAttribute("href") || "").match(/#([^#]+)$/);
+      if (m && bySlug[m[1]]) a.textContent = bySlug[m[1]];
+    });
+  } catch (e) {
+    /* при липса на връзка оставяме статичните имена */
+  }
+}
+
 window.GF = {
   client,
   api,
@@ -93,6 +116,10 @@ window.GF = {
   listProducts,
   getProduct,
   productCardHTML,
+  syncCategoryLabels,
 };
 
 window.dispatchEvent(new Event("gf-ready"));
+
+if (document.readyState !== "loading") syncCategoryLabels();
+else document.addEventListener("DOMContentLoaded", syncCategoryLabels);
