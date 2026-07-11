@@ -501,8 +501,8 @@ section { padding: 90px 0; position: relative; }
   .steps-progress-bar {
     display: block;
     position: absolute;
-    top: 40px;
-    bottom: 40px;
+    top: 52px;
+    bottom: 52px;
     left: 42px;
     width: 2px;
     background: #E2ECF5;
@@ -511,12 +511,12 @@ section { padding: 90px 0; position: relative; }
   .steps-progress-active {
     display: block;
     position: absolute;
-    top: 40px;
+    top: 52px;
     left: 42px;
     width: 2px;
     background: var(--aegean);
     z-index: 0;
-    height: 0%;
+    height: 0px;
     transition: height 0.1s ease;
   }
   .step-card {

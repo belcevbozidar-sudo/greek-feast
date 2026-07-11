@@ -448,42 +448,43 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+(() => {
   const stepsGrid = document.querySelector('.steps-grid');
   const progressBarActive = document.querySelector('.steps-progress-active');
   const stepCards = document.querySelectorAll('.step-card');
 
   function updateStepsOnScroll() {
     if (!stepsGrid || window.innerWidth > 980) {
-      if (progressBarActive) progressBarActive.style.height = '0%';
+      if (progressBarActive) progressBarActive.style.height = '0px';
       document.querySelectorAll('.step-num').forEach(num => num.classList.remove('active'));
       return;
     }
 
     const firstCard = stepCards[0];
     const lastCard = stepCards[stepCards.length - 1];
+    if (!firstCard || !lastCard) return;
+
     const viewportHeight = window.innerHeight;
-    const triggerLine = viewportHeight * 0.55; // 55% of viewport height is the trigger line
+    const triggerLine = viewportHeight * 0.65; // trigger line at 65% of viewport height
 
     const firstTop = firstCard.getBoundingClientRect().top + 32; // center of first number
     const lastTop = lastCard.getBoundingClientRect().top + 32; // center of last number
 
-    // If firstTop is below the trigger line, scroll hasn't reached it yet
-    let pct = 0;
+    let heightPx = 0;
     if (firstTop < triggerLine) {
-      const totalDistance = lastTop - firstTop;
-      const scrolledDistance = triggerLine - firstTop;
-      pct = (scrolledDistance / totalDistance) * 100;
-      pct = Math.max(0, Math.min(100, pct));
+      const maxDistance = lastTop - firstTop;
+      const currentDistance = triggerLine - firstTop;
+      heightPx = Math.max(0, Math.min(maxDistance, currentDistance));
     }
 
     if (progressBarActive) {
-      progressBarActive.style.height = `${pct}%`;
+      progressBarActive.style.height = `${heightPx}px`;
     }
 
     stepCards.forEach((card) => {
       const rect = card.getBoundingClientRect();
       const numEl = card.querySelector('.step-num');
+      if (!numEl) return;
       const numCenter = rect.top + 32;
       if (numCenter < triggerLine) {
         numEl.classList.add('active');
@@ -495,8 +496,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('scroll', updateStepsOnScroll, { passive: true });
   window.addEventListener('resize', updateStepsOnScroll, { passive: true });
+  
+  // Also run immediately and on a short delay to ensure layout has stabilized
   updateStepsOnScroll();
-});
+  setTimeout(updateStepsOnScroll, 100);
+  setTimeout(updateStepsOnScroll, 300);
+})();
 </script>
 <script src="js/price.js"></script>
 <script src="js/cart.js"></script>
