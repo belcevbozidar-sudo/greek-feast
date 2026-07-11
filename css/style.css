@@ -288,12 +288,22 @@ section { padding: 90px 0; position: relative; }
 .partner-points svg { width: 22px; height: 22px; flex-shrink: 0; color: var(--aegean); margin-top: 2px; }
 
 /* ===== Steps (how to order) ===== */
-.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; counter-reset: step; }
+.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; counter-reset: step; position: relative; }
+.steps-progress-bar { display: none; }
+.steps-progress-active { display: none; }
 .step-card { text-align: center; position: relative; padding: 10px; }
 .step-num {
   width: 64px; height: 64px; border-radius: 50%; background: var(--white); border: 2px solid var(--aegean);
   color: var(--aegean); font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.5rem;
   display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; box-shadow: var(--shadow);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.step-num.active {
+  background: var(--aegean);
+  color: var(--white);
+  border-color: var(--aegean);
+  transform: scale(1.15);
+  box-shadow: 0 8px 24px rgba(13,45,87,0.25);
 }
 .step-card h4 { margin-bottom: 8px; }
 .step-card p { color: var(--ink-soft); font-size: 0.92rem; }
@@ -481,7 +491,50 @@ section { padding: 90px 0; position: relative; }
   .product-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
   .partner-grid { grid-template-columns: 1fr; }
   .partner-grid .arch-frame { order: -1; max-width: 460px; margin: 0 auto; }
-  .steps-grid { grid-template-columns: 1fr; }
+  .steps-grid {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px 0 20px 10px;
+  }
+  .steps-progress-bar {
+    display: block;
+    position: absolute;
+    top: 40px;
+    bottom: 40px;
+    left: 42px;
+    width: 2px;
+    background: #E2ECF5;
+    z-index: 0;
+  }
+  .steps-progress-active {
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 42px;
+    width: 2px;
+    background: var(--aegean);
+    z-index: 0;
+    height: 0%;
+    transition: height 0.1s ease;
+  }
+  .step-card {
+    display: flex;
+    text-align: left;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+    padding: 0;
+  }
+  .step-num {
+    margin: 0;
+    flex-shrink: 0;
+  }
+  .step-body {
+    padding-top: 12px;
+  }
   .step-connector { display: none; }
   .testi-track { grid-template-columns: 1fr; }
   .cta-section { grid-template-columns: 1fr; padding: 40px 28px; }

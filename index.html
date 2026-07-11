@@ -271,7 +271,7 @@
         </ul>
       </div>
       <div class="arch-frame">
-        <img src="images/illustrations/olive-branch.svg" alt="Автентични гръцки суровини">
+        <img src="images/olive-grove-partner.jpg" alt="Автентични гръцки суровини" loading="lazy">
       </div>
     </div>
   </div>
@@ -284,22 +284,30 @@
       <h2>Как да станете наш партньор</h2>
     </div>
     <div class="steps-grid">
+      <div class="steps-progress-bar"></div>
+      <div class="steps-progress-active"></div>
       <div class="step-card">
         <div class="step-connector"></div>
         <div class="step-num">1</div>
-        <h4>Изберете продукти</h4>
-        <p>Добавете желаните съставки и ориентировъчни количества от каталога в количката.</p>
+        <div class="step-body">
+          <h4>Изберете продукти</h4>
+          <p>Добавете желаните съставки и ориентировъчни количества от каталога в количката.</p>
+        </div>
       </div>
       <div class="step-card">
         <div class="step-connector"></div>
         <div class="step-num">2</div>
-        <h4>Изпратете запитване</h4>
-        <p>Попълнете формата с име на фирмата, обект за доставка и желана честота на доставки.</p>
+        <div class="step-body">
+          <h4>Изпратете запитване</h4>
+          <p>Попълнете формата с име на фирмата, обект за доставка и желана честота на доставки.</p>
+        </div>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
-        <h4>Индивидуална оферта</h4>
-        <p>Наш мениджър ще се свърже с вас с конкретни цени при обем, договор и график за зареждане.</p>
+        <div class="step-body">
+          <h4>Индивидуална оферта</h4>
+          <p>Наш мениджър ще се свърже с вас с конкретни цени при обем, договор и график за зареждане.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -439,6 +447,57 @@
   <span id="toastMsg">Добавено към заявката</span>
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const stepsGrid = document.querySelector('.steps-grid');
+  const progressBarActive = document.querySelector('.steps-progress-active');
+  const stepCards = document.querySelectorAll('.step-card');
+
+  function updateStepsOnScroll() {
+    if (!stepsGrid || window.innerWidth > 980) {
+      if (progressBarActive) progressBarActive.style.height = '0%';
+      document.querySelectorAll('.step-num').forEach(num => num.classList.remove('active'));
+      return;
+    }
+
+    const firstCard = stepCards[0];
+    const lastCard = stepCards[stepCards.length - 1];
+    const viewportHeight = window.innerHeight;
+    const triggerLine = viewportHeight * 0.55; // 55% of viewport height is the trigger line
+
+    const firstTop = firstCard.getBoundingClientRect().top + 32; // center of first number
+    const lastTop = lastCard.getBoundingClientRect().top + 32; // center of last number
+
+    // If firstTop is below the trigger line, scroll hasn't reached it yet
+    let pct = 0;
+    if (firstTop < triggerLine) {
+      const totalDistance = lastTop - firstTop;
+      const scrolledDistance = triggerLine - firstTop;
+      pct = (scrolledDistance / totalDistance) * 100;
+      pct = Math.max(0, Math.min(100, pct));
+    }
+
+    if (progressBarActive) {
+      progressBarActive.style.height = `${pct}%`;
+    }
+
+    stepCards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      const numEl = card.querySelector('.step-num');
+      const numCenter = rect.top + 32;
+      if (numCenter < triggerLine) {
+        numEl.classList.add('active');
+      } else {
+        numEl.classList.remove('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateStepsOnScroll, { passive: true });
+  window.addEventListener('resize', updateStepsOnScroll, { passive: true });
+  updateStepsOnScroll();
+});
+</script>
 <script src="js/price.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/main.js"></script>
