@@ -316,29 +316,6 @@
 <section class="bg-cream">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Въпроси и отговори</span>
-      <h2>Често задавани въпроси</h2>
-    </div>
-    <div class="faq-list">
-      <details class="faq-item" open>
-        <summary>Има ли минимално количество за поръчка?</summary>
-        <p>Не, работим без изискване за минимално количество — можете да поръчате точно толкова, колкото са нуждите на вашето заведение.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Кои райони обслужвате?</summary>
-        <p>Доставяме до цяла България.</p>
-      </details>
-      <details class="faq-item">
-        <summary>В кои дни доставяте?</summary>
-        <p>Доставяме всеки ден с изключение на неделя.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section class="bg-white">
-  <div class="container">
-    <div class="section-head">
       <span class="eyebrow">Отзиви</span>
       <h2>Какво казват партньорите ни</h2>
     </div>
@@ -371,7 +348,7 @@
   </div>
 </section>
 
-<section class="bg-cream">
+<section class="bg-white">
   <div class="container">
     <div class="cta-section">
       <div>
@@ -405,6 +382,29 @@
         </div>
         <button type="submit" class="btn btn-primary btn-block">Изпрати запитване</button>
       </form>
+    </div>
+  </div>
+</section>
+
+<section class="bg-cream">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Въпроси и отговори</span>
+      <h2>Често задавани въпроси</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Има ли минимално количество за поръчка?</summary>
+        <p>Не, работим без изискване за минимално количество — можете да поръчате точно толкова, колкото са нуждите на вашето заведение.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Кои райони обслужвате?</summary>
+        <p>Доставяме до цяла България.</p>
+      </details>
+      <details class="faq-item">
+        <summary>В кои дни доставяте?</summary>
+        <p>Доставяме всеки ден с изключение на неделя.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -516,14 +516,16 @@
     });
   }
 
-  window.addEventListener('scroll', updateStepsOnScroll, { passive: true });
-  window.addEventListener('resize', updateStepsOnScroll, { passive: true });
+  // Driven by requestAnimationFrame instead of only the scroll event: some mobile browsers
+  // throttle/coalesce scroll events during momentum scrolling, which made the line appear frozen.
+  // A rAF loop recalculates every frame, so it always tracks the finger 1:1.
+  function loop() {
+    updateStepsOnScroll();
+    requestAnimationFrame(loop);
+  }
 
-  // Run immediately and on timeouts to guarantee correct height calculations after rendering completes
-  updateStepsOnScroll();
-  setTimeout(updateStepsOnScroll, 100);
-  setTimeout(updateStepsOnScroll, 300);
-  setTimeout(updateStepsOnScroll, 600);
+  window.addEventListener('resize', updateStepsOnScroll, { passive: true });
+  requestAnimationFrame(loop);
 })();
 </script>
 <script src="js/price.js"></script>
