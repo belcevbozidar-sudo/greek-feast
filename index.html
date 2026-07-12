@@ -19,6 +19,7 @@
     <nav class="main-nav" id="mainNav">
       <a href="index.html" class="active">Начало</a>
       <a href="catalog.html">Продукти</a>
+      <a href="menu-ideas.html">Идеи за меню</a>
       <a href="about.html">За нас</a>
       <a href="contact.html">Контакти</a>
     </nav>
@@ -254,6 +255,45 @@
   </div>
 </section>
 
+<section class="bg-white">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Вдъхновение</span>
+      <h2>Идеи за меню</h2>
+      <p class="lede">Гръцки класики, съставени изцяло от нашия каталог — вижте точно какво ви трябва, за да ги приготвите в собствената си кухня.</p>
+    </div>
+    <div class="idea-teaser-grid">
+      <a href="menu-ideas.html#horiatiki" class="idea-teaser-card">
+        <img src="images/recipes/horiatiki.jpg" alt="Хориатики — гръцка селска салата" loading="lazy">
+        <div class="idea-teaser-overlay">
+          <span class="idea-teaser-eyebrow">Гръцка класика</span>
+          <h4>Хориатики</h4>
+          <span>7 съставки от каталога</span>
+        </div>
+      </a>
+      <a href="menu-ideas.html#gyros-pork" class="idea-teaser-card">
+        <img src="images/recipes/gyros-pork.jpg" alt="Гирос пита със свинско" loading="lazy">
+        <div class="idea-teaser-overlay">
+          <span class="idea-teaser-eyebrow">Улична класика</span>
+          <h4>Гирос пита (свинско)</h4>
+          <span>5 съставки от каталога</span>
+        </div>
+      </a>
+      <a href="menu-ideas.html#octopus-grilled" class="idea-teaser-card">
+        <img src="images/recipes/octopus-grilled.jpg" alt="Октопод на скара" loading="lazy">
+        <div class="idea-teaser-overlay">
+          <span class="idea-teaser-eyebrow">От морето</span>
+          <h4>Октопод на скара</h4>
+          <span>4 съставки от каталога</span>
+        </div>
+      </a>
+    </div>
+    <div class="text-center mt-40">
+      <a href="menu-ideas.html" class="btn btn-primary">Разгледай всички идеи</a>
+    </div>
+  </div>
+</section>
+
 <section class="partner-section">
   <div class="container">
     <div class="partner-grid">
@@ -428,6 +468,7 @@
         <ul>
           <li><a href="index.html">Начало</a></li>
           <li><a href="catalog.html">Продукти</a></li>
+          <li><a href="menu-ideas.html">Идеи за меню</a></li>
           <li><a href="about.html">За нас</a></li>
           <li><a href="order.html">Моята заявка</a></li>
         </ul>
@@ -518,14 +559,26 @@
 
   // Driven by requestAnimationFrame instead of only the scroll event: some mobile browsers
   // throttle/coalesce scroll events during momentum scrolling, which made the line appear frozen.
-  // A rAF loop recalculates every frame, so it always tracks the finger 1:1.
+  // A rAF loop recalculates every frame, so it always tracks the finger 1:1. Only runs on the
+  // mobile layout where the animation is visible, so desktop doesn't burn a frame loop forever.
+  let rafId = null;
   function loop() {
     updateStepsOnScroll();
-    requestAnimationFrame(loop);
+    rafId = requestAnimationFrame(loop);
+  }
+  function syncLoopToViewport() {
+    const shouldRun = window.innerWidth <= 980;
+    if (shouldRun && rafId === null) {
+      rafId = requestAnimationFrame(loop);
+    } else if (!shouldRun && rafId !== null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+      updateStepsOnScroll();
+    }
   }
 
-  window.addEventListener('resize', updateStepsOnScroll, { passive: true });
-  requestAnimationFrame(loop);
+  window.addEventListener('resize', syncLoopToViewport, { passive: true });
+  syncLoopToViewport();
 })();
 </script>
 <script src="js/price.js"></script>

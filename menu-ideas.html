@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="pageTitle">Продукт — Greek Feast</title>
-<meta name="description" id="pageDesc" content="Автентични гръцки продукти на едро — официален вносител на Papa Georgio.">
+<title>Идеи за меню — Greek Feast</title>
+<meta name="description" content="Гръцки класики, съставени изцяло от продуктите в нашия каталог — вижте точно какви съставки са необходими и ги добавете в заявката с един клик.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -18,8 +18,8 @@
     </a>
     <nav class="main-nav" id="mainNav">
       <a href="index.html">Начало</a>
-      <a href="catalog.html" class="active">Продукти</a>
-      <a href="menu-ideas.html">Идеи за меню</a>
+      <a href="catalog.html">Продукти</a>
+      <a href="menu-ideas.html" class="active">Идеи за меню</a>
       <a href="about.html">За нас</a>
       <a href="contact.html">Контакти</a>
     </nav>
@@ -34,20 +34,36 @@
   </div>
 </header>
 
-<div class="container" style="padding-top:28px;">
-  <div class="breadcrumb" id="breadcrumb" style="color: var(--ink-soft);"></div>
-</div>
-
-<section style="padding-top:14px;">
+<section class="page-hero-photo" style="background-image:url('images/recipes/menu-ideas-hero.jpg')">
+  <div class="page-hero-photo-overlay"></div>
   <div class="container">
-    <div class="product-detail-grid" id="productDetail"></div>
+    <div class="breadcrumb"><a href="index.html">Начало</a><span>/</span>Идеи за меню</div>
+    <h1>Идеи за меню</h1>
+    <p>Гръцки класики, съставени изцяло от продуктите в нашия каталог. Вижте точно какви съставки са необходими за всяко ястие и ги добавете в заявката си с един клик.</p>
+  </div>
+</section>
 
-    <div class="related-section" id="relatedSection" style="display:none;">
-      <div class="section-head" style="text-align:left; margin-bottom:34px;">
-        <span class="eyebrow">Още предложения</span>
-        <h2 id="relatedTitle">Още от тази категория</h2>
+<section class="bg-white">
+  <div class="container">
+    <p class="recipe-intro lede">Всяка карта по-долу показва реална гръцка позиция за меню и точния набор от съставки, от които се нуждаете, за да я приготвите — всички налични директно в нашия каталог на едро.</p>
+    <div class="recipe-grid" id="recipeGrid">
+      <p class="catalog-loading">Зареждане на идеите...</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-cream">
+  <div class="container">
+    <div class="cta-section">
+      <div>
+        <span class="eyebrow on-dark">Не намерихте това, което търсите?</span>
+        <h2>Разгледайте пълния ни каталог</h2>
+        <p>Стотици гръцки продукти на едро — зеленчуци, сирена, месо, риба, бакалия и напитки за вашето меню.</p>
+        <div class="hero-actions">
+          <a href="catalog.html" class="btn btn-gold">Разгледай каталога</a>
+          <a href="contact.html" class="btn btn-outline on-dark">Свържете се с нас</a>
+        </div>
       </div>
-      <div class="product-grid" id="relatedGrid"></div>
     </div>
   </div>
 </section>
@@ -87,10 +103,22 @@
       </div>
       <div class="footer-col">
         <h4>Контакти</h4>
-        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span>+359 88 888 8888</span></div>
-        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg><span>bojidar453@abv.bg</span></div>
-        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>София, България</span></div>
-        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>Пон–Съб: 09:00–19:00</span></div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span>+359 88 888 8888</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <span>bojidar453@abv.bg</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>София, България</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span>Пон–Съб: 09:00–19:00</span>
+        </div>
       </div>
     </div>
   </div>
@@ -105,6 +133,6 @@
 <script src="js/price.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/main.js"></script>
-<script type="module" src="js/product-page.js"></script>
+<script type="module" src="js/menu-ideas.js"></script>
 </body>
 </html>
