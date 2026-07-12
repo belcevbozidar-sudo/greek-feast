@@ -454,87 +454,67 @@
   const stepCards = document.querySelectorAll('.step-card');
   if (!stepsGrid || stepCards.length < 3 || !progressBarActive) return;
 
-  const firstCircle = stepCards[0].querySelector('.step-num');
-  const secondCircle = stepCards[1].querySelector('.step-num');
-  const thirdCircle = stepCards[2].querySelector('.step-num');
-  if (!firstCircle || !secondCircle || !thirdCircle) return;
-
   function getOffsets() {
-    const c1_center = stepCards[0].offsetTop + firstCircle.offsetTop + 32;
-    const c2_center = stepCards[1].offsetTop + secondCircle.offsetTop + 32;
-    const c3_center = stepCards[2].offsetTop + thirdCircle.offsetTop + 32;
     return {
-      d2: c2_center - c1_center,
-      d3: c3_center - c1_center
+      d2: stepCards[1].offsetTop - stepCards[0].offsetTop,
+      d3: stepCards[2].offsetTop - stepCards[0].offsetTop
     };
   }
 
   let offsets = getOffsets();
   window.addEventListener('resize', () => {
     offsets = getOffsets();
-    updateProgressHeight();
+    updateStepsOnScroll();
   }, { passive: true });
 
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -40% 0px', // Trigger when step top crosses 60% from top of viewport
-    threshold: 0
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const numEl = entry.target.querySelector('.step-num');
-      if (!numEl) return;
-
-      if (entry.isIntersecting) {
-        numEl.classList.add('active');
-      } else {
-        // Keep active if it is above the trigger line (boundingClientRect.top is less than trigger threshold)
-        const triggerPoint = window.innerHeight * 0.60;
-        if (entry.boundingClientRect.top > triggerPoint) {
-          numEl.classList.remove('active');
-        }
-      }
-    });
-
-    updateProgressHeight();
-  }, observerOptions);
-
-  function updateProgressHeight() {
-    if (window.getComputedStyle(stepsGrid).display !== 'flex') {
+  function updateStepsOnScroll() {
+    // Only animate when stacked vertically on mobile view
+    if (window.innerWidth > 980) {
       progressBarActive.style.height = '0px';
       document.querySelectorAll('.step-num').forEach(num => num.classList.remove('active'));
       return;
     }
+
+    const viewportHeight = window.innerHeight;
+    const triggerPoint = viewportHeight * 0.65; // Trigger when circle center is in top 65% of screen
+
+    stepCards.forEach((card) => {
+      const numEl = card.querySelector('.step-num');
+      if (!numEl) return;
+      const rect = numEl.getBoundingClientRect();
+      const numCenter = rect.top + rect.height / 2;
+
+      if (numCenter < triggerPoint) {
+        numEl.classList.add('active');
+      } else {
+        numEl.classList.remove('active');
+      }
+    });
 
     const activeNums = Array.from(stepCards).map(card => {
       const numEl = card.querySelector('.step-num');
       return numEl ? numEl.classList.contains('active') : false;
     });
 
-    let height = 0;
+    let activeHeight = 0;
     if (activeNums[2]) {
-      height = offsets.d3;
+      activeHeight = offsets.d3;
     } else if (activeNums[1]) {
-      height = offsets.d2;
+      activeHeight = offsets.d2;
     } else {
-      height = 0;
+      activeHeight = 0;
     }
 
-    progressBarActive.style.height = `${height}px`;
+    progressBarActive.style.height = `${activeHeight}px`;
   }
 
-  stepCards.forEach(card => observer.observe(card));
+  window.addEventListener('scroll', updateStepsOnScroll, { passive: true });
 
-  // Run initial updates
-  setTimeout(() => {
-    offsets = getOffsets();
-    updateProgressHeight();
-  }, 100);
-  setTimeout(() => {
-    offsets = getOffsets();
-    updateProgressHeight();
-  }, 300);
+  // Run immediately and on timeouts to guarantee correct height calculations after rendering completes
+  updateStepsOnScroll();
+  setTimeout(updateStepsOnScroll, 100);
+  setTimeout(updateStepsOnScroll, 300);
+  setTimeout(updateStepsOnScroll, 600);
 })();
 </script>
 <script src="js/price.js"></script>
