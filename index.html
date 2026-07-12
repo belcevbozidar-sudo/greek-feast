@@ -454,19 +454,6 @@
   const stepCards = document.querySelectorAll('.step-card');
   if (!stepsGrid || stepCards.length < 3 || !progressBarActive) return;
 
-  function getOffsets() {
-    return {
-      d2: stepCards[1].offsetTop - stepCards[0].offsetTop,
-      d3: stepCards[2].offsetTop - stepCards[0].offsetTop
-    };
-  }
-
-  let offsets = getOffsets();
-  window.addEventListener('resize', () => {
-    offsets = getOffsets();
-    updateStepsOnScroll();
-  }, { passive: true });
-
   function updateStepsOnScroll() {
     // Only animate when stacked vertically on mobile view
     if (window.innerWidth > 980) {
@@ -474,6 +461,10 @@
       document.querySelectorAll('.step-num').forEach(num => num.classList.remove('active'));
       return;
     }
+
+    // Calculate offsets dynamically to prevent caching 0px values during early script parsing
+    const d2 = stepCards[1].offsetTop - stepCards[0].offsetTop;
+    const d3 = stepCards[2].offsetTop - stepCards[0].offsetTop;
 
     const viewportHeight = window.innerHeight;
     const triggerPoint = viewportHeight * 0.65; // Trigger when circle center is in top 65% of screen
@@ -498,9 +489,9 @@
 
     let activeHeight = 0;
     if (activeNums[2]) {
-      activeHeight = offsets.d3;
+      activeHeight = d3;
     } else if (activeNums[1]) {
-      activeHeight = offsets.d2;
+      activeHeight = d2;
     } else {
       activeHeight = 0;
     }
@@ -509,6 +500,7 @@
   }
 
   window.addEventListener('scroll', updateStepsOnScroll, { passive: true });
+  window.addEventListener('resize', updateStepsOnScroll, { passive: true });
 
   // Run immediately and on timeouts to guarantee correct height calculations after rendering completes
   updateStepsOnScroll();
