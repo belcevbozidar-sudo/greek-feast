@@ -316,6 +316,29 @@
 <section class="bg-cream">
   <div class="container">
     <div class="section-head">
+      <span class="eyebrow">Въпроси и отговори</span>
+      <h2>Често задавани въпроси</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Има ли минимално количество за поръчка?</summary>
+        <p>Не, работим без изискване за минимално количество — можете да поръчате точно толкова, колкото са нуждите на вашето заведение.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Кои райони обслужвате?</summary>
+        <p>Доставяме до цяла България.</p>
+      </details>
+      <details class="faq-item">
+        <summary>В кои дни доставяте?</summary>
+        <p>Доставяме всеки ден с изключение на неделя.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="container">
+    <div class="section-head">
       <span class="eyebrow">Отзиви</span>
       <h2>Какво казват партньорите ни</h2>
     </div>
@@ -348,7 +371,7 @@
   </div>
 </section>
 
-<section class="bg-white">
+<section class="bg-cream">
   <div class="container">
     <div class="cta-section">
       <div>
@@ -462,41 +485,35 @@
       return;
     }
 
-    // Calculate offsets dynamically to prevent caching 0px values during early script parsing
-    const d2 = stepCards[1].offsetTop - stepCards[0].offsetTop;
-    const d3 = stepCards[2].offsetTop - stepCards[0].offsetTop;
+    const numEls = Array.from(stepCards).map(card => card.querySelector('.step-num'));
+    if (numEls.some(el => !el)) return;
 
-    const viewportHeight = window.innerHeight;
-    const triggerPoint = viewportHeight * 0.65; // Trigger when circle center is in top 65% of screen
+    // Document-space centers stay stable across the scroll event, unlike viewport-relative rects
+    const centersDoc = numEls.map(el => {
+      const rect = el.getBoundingClientRect();
+      return rect.top + window.scrollY + rect.height / 2;
+    });
 
-    stepCards.forEach((card) => {
-      const numEl = card.querySelector('.step-num');
-      if (!numEl) return;
-      const rect = numEl.getBoundingClientRect();
-      const numCenter = rect.top + rect.height / 2;
+    const firstCenter = centersDoc[0];
+    const lastCenter = centersDoc[centersDoc.length - 1];
+    const totalDistance = lastCenter - firstCenter;
 
-      if (numCenter < triggerPoint) {
+    const triggerDoc = window.scrollY + window.innerHeight * 0.65; // Trigger when circle center is in top 65% of screen
+
+    // Progress tracks the scroll position 1:1, so the line grows exactly with the finger instead of snapping
+    let progress = triggerDoc - firstCenter;
+    progress = Math.max(0, Math.min(progress, totalDistance));
+
+    progressBarActive.style.height = `${progress}px`;
+
+    numEls.forEach((numEl, i) => {
+      const stepDistance = centersDoc[i] - firstCenter;
+      if (progress >= stepDistance - 1) {
         numEl.classList.add('active');
       } else {
         numEl.classList.remove('active');
       }
     });
-
-    const activeNums = Array.from(stepCards).map(card => {
-      const numEl = card.querySelector('.step-num');
-      return numEl ? numEl.classList.contains('active') : false;
-    });
-
-    let activeHeight = 0;
-    if (activeNums[2]) {
-      activeHeight = d3;
-    } else if (activeNums[1]) {
-      activeHeight = d2;
-    } else {
-      activeHeight = 0;
-    }
-
-    progressBarActive.style.height = `${activeHeight}px`;
   }
 
   window.addEventListener('scroll', updateStepsOnScroll, { passive: true });
